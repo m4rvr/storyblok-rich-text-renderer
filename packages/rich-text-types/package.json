@@ -9,5 +9,8 @@
     "build:watch": "yarn clean && tsc --watch",
     "clean": "rimraf lib"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }

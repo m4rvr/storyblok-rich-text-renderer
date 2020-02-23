@@ -29,5 +29,8 @@
     "storyblok-js-client": "^2.0.12",
     "vue-template-compiler": "^2.6.11"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
