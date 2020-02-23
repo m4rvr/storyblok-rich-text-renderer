@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderer does not render mark with invalid type 1`] = `<p><strong>Para</strong>graph</p>`;
+
+exports[`Renderer renders blockquote with default resolvers 1`] = `
+<blockquote>
+  <p>quote</p>
+</blockquote>
+`;
+
+exports[`Renderer renders bullet_list with default resolvers 1`] = `
+<ul>
+  <li>
+    <p>list item</p>
+  </li>
+  <li>
+    <p>list item</p>
+  </li>
+</ul>
+`;
+
+exports[`Renderer renders code_block with default resolvers 1`] = `<pre class="language-javascript"><code>code block</code></pre>`;
+
+exports[`Renderer renders components 1`] = `
+<div>
+  <div>No rendering definition for component <strong>button</strong> found.</div>
+  <div>No rendering definition for component <strong>button</strong> found.</div>
+</div>
+`;
+
+exports[`Renderer renders document 1`] = `
+<div>
+  <h1>h1</h1>
+  <p>paragraph</p>
+  <blockquote>
+    <p>quote</p>
+  </blockquote>
+  <ol>
+    <li>
+      <p>list item</p>
+    </li>
+    <li>
+      <p>list item</p>
+    </li>
+    <li>
+      <p>list item</p>
+    </li>
+  </ol>
+  <ul>
+    <li>
+      <p>list item</p>
+    </li>
+    <li>
+      <p>list item</p>
+    </li>
+  </ul><pre class="language-javascript"><code>code block</code></pre><img src="image src" alt="image alt" title="image title">
+</div>
+`;
+
+exports[`Renderer renders empty string if type is invalid 1`] = `""`;
+
+exports[`Renderer renders hard_break with default resolvers 1`] = `<br>`;
+
+exports[`Renderer renders heading with default resolvers 1`] = `<h1>h1</h1>`;
+
+exports[`Renderer renders horizontal_rule with default resolvers 1`] = `<hr>`;
+
+exports[`Renderer renders image with default resolvers 1`] = `<img src="image src" alt="image alt" title="image title">`;
+
+exports[`Renderer renders link 1`] = `<p><a href="https://www.storyblok.com" target="_blank">link</a></p>`;
+
+exports[`Renderer renders node list 1`] = `
+<div>
+  <h1>h1</h1>
+  <p>paragraph</p>
+  <blockquote>
+    <p>quote</p>
+  </blockquote>
+  <ol>
+    <li>
+      <p>list item</p>
+    </li>
+    <li>
+      <p>list item</p>
+    </li>
+    <li>
+      <p>list item</p>
+    </li>
+  </ol>
+  <ul>
+    <li>
+      <p>list item</p>
+    </li>
+    <li>
+      <p>list item</p>
+    </li>
+  </ul><pre class="language-javascript"><code>code block</code></pre>
+  <hr><br><img src="image src" alt="image alt" title="image title">
+</div>
+`;
+
+exports[`Renderer renders ordered_list with default resolvers 1`] = `
+<ol>
+  <li>
+    <p>list item</p>
+  </li>
+  <li>
+    <p>list item</p>
+  </li>
+  <li>
+    <p>list item</p>
+  </li>
+</ol>
+`;
+
+exports[`Renderer renders paragraph containing marks with default resolvers 1`] = `<p>Pa<b>ra</b><i>gr</i><strong>aph</strong></p>`;
+
+exports[`Renderer renders paragraph with default resolvers 1`] = `<p>paragraph</p>`;
+
+exports[`Renderer renders with multiple marks 1`] = `<p><u><s><strong>Para</strong></s></u></p>`;
