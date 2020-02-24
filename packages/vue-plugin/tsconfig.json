@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "importHelpers": true,
+    "declarationDir": "dist",
     "types": [
       "webpack-env",
       "jest"

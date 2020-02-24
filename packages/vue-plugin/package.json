@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Vue.js plugin for Storyblok's rich-text renderer",
   "main": "dist/vue-storyblok-rich-text-renderer.common.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/plugin/index.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn test:unit && vue-cli-service build --target lib --name vue-storyblok-rich-text-renderer src/plugin/index.ts",
