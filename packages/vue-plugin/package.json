@@ -1,6 +1,6 @@
 {
   "name": "@marvinrudolph/vue-storyblok-rich-text-renderer",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Vue.js plugin for Storyblok's rich-text renderer",
   "main": "dist/vue-storyblok-rich-text-renderer.common.js",
   "types": "dist/plugin/index.d.ts",
