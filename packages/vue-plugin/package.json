@@ -1,6 +1,6 @@
 {
   "name": "@marvinrudolph/vue-storyblok-rich-text-renderer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue.js plugin for Storyblok's rich-text renderer",
   "main": "dist/vue-storyblok-rich-text-renderer.common.js",
   "types": "dist/plugin/index.d.ts",
@@ -11,7 +11,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@marvinrudolph/storyblok-rich-text-types": "^1.0.0",
+    "@marvinrudolph/storyblok-rich-text-types": "^1.0.1",
     "@vue/composition-api": "^0.3.4",
     "vue": "^2.6.11"
   },
