@@ -10,9 +10,9 @@ To avoid this I wrote this plugin which doesn't require the Runtime Compiler bec
 Add it to your dependencies with a package manager :package::
 
 ``` bash
-npm install vue-storyblok-rich-text-renderer
+npm install @marvinrudolph/vue-storyblok-rich-text-renderer
 # OR
-yarn add vue-storyblok-rich-text-renderer
+yarn add @marvinrudolph/vue-storyblok-rich-text-renderer
 ```
 
 ## Configuration :wrench:
