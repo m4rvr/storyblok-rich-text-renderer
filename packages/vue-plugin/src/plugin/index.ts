@@ -27,4 +27,5 @@ const VueRichTextRenderer: PluginObject<Options> = {
   }
 }
 
+export { RichTextRenderer }
 export default VueRichTextRenderer
