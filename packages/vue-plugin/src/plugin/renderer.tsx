@@ -1,7 +1,7 @@
 import { CreateElement, VNode } from 'vue'
 import { Nodes, MarkNodes, BlockNodes, VoidBlockNodes, BlockNodesWithContent, ComponentNode } from '@marvinrudolph/storyblok-rich-text-types'
-import { RenderText } from '@/vue'
-import { Options } from '@/plugin'
+import { RenderText } from '../vue'
+import { Options } from '.'
 import {
   BlockResolvers,
   BlockResolver,
@@ -13,8 +13,8 @@ import {
   defaultBlockResolvers,
   defaultMarkResolvers,
   defaultComponentResolver
-} from '@/plugin/resolver'
-import { isTextNode, isBlockNode, isVoidBlockNode, isComponentNode } from '@/plugin/utils'
+} from './resolver'
+import { isTextNode, isBlockNode, isVoidBlockNode, isComponentNode } from './utils'
 
 export interface Resolvers {
   blockResolvers: BlockResolvers;

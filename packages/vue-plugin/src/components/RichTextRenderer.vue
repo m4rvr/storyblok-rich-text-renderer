@@ -1,8 +1,8 @@
 <script lang="ts">
 import { createComponent, createElement as h } from '@vue/composition-api'
 import { Nodes } from '@marvinrudolph/storyblok-rich-text-types'
-import { useRenderer } from '@/plugin/renderer'
-import { Options } from '@/plugin'
+import { useRenderer } from '../plugin/renderer'
+import { Options } from '../plugin'
 
 export default createComponent({
   name: 'rich-text-renderer',

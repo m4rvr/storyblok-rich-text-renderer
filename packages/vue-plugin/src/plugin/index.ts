@@ -1,6 +1,6 @@
 import { PluginObject } from 'vue'
-import { BlockResolvers, MarkResolvers, ComponentResolvers } from '@/plugin/resolver'
-import RichTextRenderer from '@/components/RichTextRenderer.vue'
+import { BlockResolvers, MarkResolvers, ComponentResolvers } from './resolver'
+import RichTextRenderer from '../components/RichTextRenderer.vue'
 
 export interface ResolverOptions {
   blocks?: Partial<BlockResolvers>;

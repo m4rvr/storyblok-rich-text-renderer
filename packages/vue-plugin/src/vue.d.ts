@@ -1,5 +1,5 @@
 import { VNode } from 'vue'
-import { Options } from '@/plugin'
+import { Options } from './plugin'
 
 export type RenderText = (text: string) => VNode
 

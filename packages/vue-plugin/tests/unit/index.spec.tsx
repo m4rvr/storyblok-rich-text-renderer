@@ -3,7 +3,7 @@ import VueCompositionApi from '@vue/composition-api'
 import { VNode, CreateElement } from 'vue'
 import { Nodes } from '@marvinrudolph/storyblok-rich-text-types'
 import TestRenderer from './components/TestRenderer.vue'
-import { useRenderer } from '@/plugin/renderer'
+import { useRenderer } from '../../src/plugin/renderer'
 import {
   heading,
   paragraph,

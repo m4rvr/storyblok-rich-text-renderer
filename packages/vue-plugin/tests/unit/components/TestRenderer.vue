@@ -1,5 +1,5 @@
 <script>
-import { useRenderer } from '@/plugin/renderer'
+import { useRenderer } from '../../../src/plugin/renderer'
 
 export default {
   props: {
