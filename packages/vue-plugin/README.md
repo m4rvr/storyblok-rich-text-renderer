@@ -7,7 +7,7 @@
 
 ## Documentation
 
-Check out the docs at [DOCS]().
+Check out the docs at [https://storyblok-rich-text-renderer.netlify.com/vue-plugin/](https://storyblok-rich-text-renderer.netlify.com/vue-plugin/).
 
 ## License
 [MIT](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/blob/master/LICENSE)
