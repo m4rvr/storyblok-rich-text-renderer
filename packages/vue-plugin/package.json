@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@marvinrudolph/storyblok-rich-text-types": "^1.0.1",
-    "@vue/composition-api": "^0.3.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {

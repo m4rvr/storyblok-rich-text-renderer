@@ -1,5 +1,4 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
 import { VNode, CreateElement } from 'vue'
 import { Nodes } from '@marvinrudolph/storyblok-rich-text-types'
 import TestRenderer from './components/TestRenderer.vue'
@@ -25,7 +24,6 @@ import {
 } from './nodes'
 
 const localVue = createLocalVue()
-localVue.use(VueCompositionApi)
 
 describe('Renderer', () => {
   function useWrapper (renderFunction: (renderer: ReturnType<typeof useRenderer>, h: CreateElement) => VNode | VNode[]) {

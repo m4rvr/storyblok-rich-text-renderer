@@ -1,10 +1,10 @@
 <script lang="ts">
-import { createComponent, createElement as h } from '@vue/composition-api'
+import Vue, { VNode } from 'vue'
 import { Nodes } from '@marvinrudolph/storyblok-rich-text-types'
 import { useRenderer } from '../plugin/renderer'
 import { Options } from '../plugin'
 
-export default createComponent({
+export default Vue.extend({
   name: 'rich-text-renderer',
   props: {
     document: {
@@ -16,14 +16,14 @@ export default createComponent({
       default: () => ({})
     }
   },
-  setup ({ document, options }, { root: { $richTextRenderer, _v } }) {
-    const renderer = useRenderer(h, _v, { ...$richTextRenderer.options, ...options })
+  render (h) {
+    const renderer = useRenderer(h, this._v, { ...this.$richTextRenderer.options, ...this.options })
     const { renderNode, renderNodeList } = renderer
 
     if (document instanceof Array) {
-      return () => h('div', renderNodeList(document))
+      return h('div', renderNodeList(this.document as Nodes[])) as VNode
     } else {
-      return () => renderNode(document)
+      return renderNode(this.document as Nodes) as VNode
     }
   }
 })
