@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarvinRudolph/storyblok-rich-text.git"
+    "url": "git+https://github.com/MarvinRudolph/storyblok-rich-text-renderer.git"
   },
   "author": {
     "name": "Marvin Rudolph",
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/MarvinRudolph/storyblok-rich-text/issues"
   },
-  "homepage": "https://github.com/MarvinRudolph/storyblok-rich-text#readme",
+  "homepage": "https://storyblok-rich-text-renderer.netlify.com",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"

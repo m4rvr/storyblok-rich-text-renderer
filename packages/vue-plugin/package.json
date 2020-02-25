@@ -12,6 +12,19 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinRudolph/storyblok-rich-text-renderer.git"
+  },
+  "author": {
+    "name": "Marvin Rudolph",
+    "email": "info@marvin-rudolph.de"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarvinRudolph/storyblok-rich-text-renderer/issues"
+  },
+  "homepage": "https://storyblok-rich-text-renderer.netlify.com/vue-plugin",
   "dependencies": {
     "@marvinrudolph/storyblok-rich-text-types": "^1.0.1",
     "vue": "^2.6.11"
@@ -30,7 +43,6 @@
     "storyblok-js-client": "^2.0.12",
     "vue-template-compiler": "^2.6.11"
   },
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
   }

@@ -9,7 +9,19 @@
     "build:watch": "yarn clean && tsc --watch",
     "clean": "rimraf lib"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinRudolph/storyblok-rich-text-renderer.git"
+  },
+  "author": {
+    "name": "Marvin Rudolph",
+    "email": "info@marvin-rudolph.de"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarvinRudolph/storyblok-rich-text-renderer/issues"
+  },
+  "homepage": "https://storyblok-rich-text-renderer.netlify.com/",
   "publishConfig": {
     "access": "public"
   }
