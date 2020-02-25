@@ -1,6 +1,6 @@
 {
   "name": "@marvinrudolph/storyblok-rich-text-types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Type definitions for Storyblok's rich-text",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

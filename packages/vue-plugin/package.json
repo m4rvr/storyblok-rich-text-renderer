@@ -1,6 +1,6 @@
 {
   "name": "@marvinrudolph/vue-storyblok-rich-text-renderer",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Vue.js plugin for Storyblok's rich-text renderer",
   "main": "dist/vue-storyblok-rich-text-renderer.common.js",
   "types": "dist/plugin/index.d.ts",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://storyblok-rich-text-renderer.netlify.com/vue-plugin",
   "dependencies": {
-    "@marvinrudolph/storyblok-rich-text-types": "^1.0.1",
+    "@marvinrudolph/storyblok-rich-text-types": "^1.0.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
