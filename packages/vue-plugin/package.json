@@ -45,5 +45,12 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "keywords": [
+    "rich-text",
+    "renderer",
+    "storyblok",
+    "vue.js",
+    "plugin"
+  ]
 }

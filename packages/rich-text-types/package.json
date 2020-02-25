@@ -24,5 +24,13 @@
   "homepage": "https://storyblok-rich-text-renderer.netlify.com/",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "keywords": [
+    "rich-text",
+    "renderer",
+    "storyblok",
+    "types",
+    "typescript",
+    "declaration"
+  ]
 }
