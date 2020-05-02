@@ -20,7 +20,7 @@
     "incremental": true
   },
   "files": [
-    "plugin.d.ts",
+    "vue.d.ts",
     "shims-vue.d.ts",
     "shims-tsx.d.ts"
   ],
