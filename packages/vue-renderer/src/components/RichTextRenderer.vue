@@ -8,7 +8,7 @@ export default Vue.extend({
   functional: true,
   props: {
     document: {
-      type: Object as () => Node,
+      type: Object as () => Node | Node[],
       required: true,
     },
     options: {
