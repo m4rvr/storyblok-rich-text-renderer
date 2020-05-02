@@ -60,8 +60,7 @@
     "storyblok-js-client": "^2.3.0",
     "typescript": "^3.8.3",
     "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11",
-    "yorkie": "^2.0.0"
+    "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
     "@vue/composition-api": "^0.5.0",
@@ -71,9 +70,11 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "gitHooks": {
-    "pre-commit": "ls-lint && lint-staged",
-    "commit-msg": "node scripts/verifyCommit.js"
+  "husky": {
+    "hooks": {
+      "pre-commit": "ls-lint && lint-staged",
+      "commit-msg": "node scripts/verifyCommit.js"
+    }
   },
   "dependencies": {
     "@babel/runtime": "^7.9.6"
