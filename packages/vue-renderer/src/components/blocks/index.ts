@@ -1,0 +1,11 @@
+export { default as SbDocument } from './Document.vue';
+export { default as SbHeading } from './Heading.vue';
+export { default as SbParagraph } from './Paragraph.vue';
+export { default as SbQuote } from './Quote.vue';
+export { default as SbOrderedList } from './OrderedList.vue';
+export { default as SbUnorderedList } from './UnorderedList.vue';
+export { default as SbListItem } from './ListItem.vue';
+export { default as SbCodeBlock } from './CodeBlock.vue';
+export { default as SbHorizontalRule } from './HorizontalRule.vue';
+export { default as SbBreak } from './Break.vue';
+export { default as SbImage } from './Image.vue';
