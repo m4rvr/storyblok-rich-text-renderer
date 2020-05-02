@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": "./packages",
+    "paths": {
+      "@marvinrudolph/storyblok-rich-text-types": ["rich-text-types/src"],
+      "@marvinrudolph/vue-storyblok-rich-text-renderer": ["vue-renderer/src"]
+    },
+    "incremental": true
+  },
+  "files": [
+    "plugin.d.ts",
+    "shims-vue.d.ts",
+    "shims-tsx.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}

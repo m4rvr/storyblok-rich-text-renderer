@@ -1,0 +1,33 @@
+{
+  "name": "@marvinrudolph/storyblok-rich-text-types",
+  "version": "0.0.0",
+  "description": "Type definitions for Storyblok's rich-text",
+  "keywords": [
+    "rich-text",
+    "renderer",
+    "storyblok",
+    "types",
+    "typescript",
+    "declaration"
+  ],
+  "homepage": "https://storyblok-rich-text-renderer.netlify.com/",
+  "bugs": {
+    "url": "https://github.com/MarvinRudolph/storyblok-rich-text-renderer/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Marvin Rudolph",
+    "email": "info@marvin-rudolph.de"
+  },
+  "sideEffects": false,
+  "main": "dist/rich-text-types.umd.js",
+  "unpkg": "dist/rich-text-types.min.js",
+  "module": "dist/rich-text-types.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "buildOptions": {
+    "name": "VueStoryblokRichTextTypes"
+  }
+}
