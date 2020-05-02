@@ -44,6 +44,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "execa": "^4.0.0",
     "fs-extra": "^9.0.0",
+    "husky": "^4.2.5",
     "jest": "^25.4.0",
     "lint-staged": "^10.1.7",
     "lodash": "^4.17.15",
@@ -69,6 +70,10 @@
   },
   "engines": {
     "node": ">=10.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "ls-lint && lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.6"
