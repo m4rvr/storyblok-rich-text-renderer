@@ -17,8 +17,7 @@ export default defineComponent({
       required: true,
     },
   },
-  setup({ body: { component } }, context) {
-    console.log(context.root.$richTextRenderer);
+  setup({ body: { component } }) {
     const componentName = ref(component);
 
     return {
