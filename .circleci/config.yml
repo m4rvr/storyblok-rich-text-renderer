@@ -37,3 +37,7 @@ workflows:
   ci:
     jobs:
       - test
+        filters:
+          branches:
+            only:
+              - next
