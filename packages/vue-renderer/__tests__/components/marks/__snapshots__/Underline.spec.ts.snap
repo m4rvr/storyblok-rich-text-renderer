@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Underline.vue renders template with default slot 1`] = `"<u>Underline</u>"`;

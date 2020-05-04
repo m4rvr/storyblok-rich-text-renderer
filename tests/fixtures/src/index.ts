@@ -7,6 +7,8 @@ import CustomParagraph from './components/CustomParagraph.vue';
 import SbButton from './components/Button.vue';
 
 Vue.config.productionTip = false;
+Vue.config.devtools = true;
+Vue.config.performance = true;
 Vue.use(VueCompositionApi);
 Vue.use(RichTextRenderer, {
   resolvers: {

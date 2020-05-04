@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComponentFallback.vue renders with passed component name 1`] = `
+"<div>
+  No rendering definition for component
+  <strong>button</strong> found.
+</div>"
+`;
