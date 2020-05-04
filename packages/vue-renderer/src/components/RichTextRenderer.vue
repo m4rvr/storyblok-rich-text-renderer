@@ -8,7 +8,7 @@ export default Vue.extend({
   functional: true,
   props: {
     document: {
-      type: Object as () => Node | Node[],
+      type: [Object as () => Node, Array as () => Node[]],
       required: true,
     },
     options: {
@@ -21,6 +21,7 @@ export default Vue.extend({
       ...Vue.prototype.$richTextRenderer,
       ...props.options,
     };
+
     const { renderDocument } = useRenderer(options);
     return renderDocument(props.document);
   },
