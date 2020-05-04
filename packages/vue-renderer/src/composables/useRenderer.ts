@@ -96,7 +96,7 @@ export function useRenderer(options: Options = {}) {
         return renderMarkNode(value, mark);
       }, renderTextNode(node.text));
     } else if (isBlockNode(node)) {
-      return renderBlockNode(node as BlockNode);
+      return renderBlockNode(node);
     } else if (isComponentNode(node)) {
       return renderComponentNode(node);
     }
