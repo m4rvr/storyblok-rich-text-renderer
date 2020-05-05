@@ -14,13 +14,16 @@
     ],
     "baseUrl": "./packages",
     "paths": {
-      "@marvinrudolph/storyblok-rich-text-types": ["rich-text-types/src"],
-      "@marvinrudolph/vue-storyblok-rich-text-renderer": ["vue-renderer/src"]
+      "@marvinrudolph/storyblok-rich-text-types": [
+        "rich-text-types/src"
+      ],
+      "@marvinrudolph/vue-storyblok-rich-text-renderer": [
+        "vue-renderer/src"
+      ]
     },
-    "incremental": true
   },
   "files": [
-    "vue.d.ts",
+    "plugin.d.ts",
     "shims-vue.d.ts",
     "shims-tsx.d.ts"
   ],
