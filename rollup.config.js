@@ -61,6 +61,12 @@ function createConfig(target) {
   const plugins = [
     typescript({
       tsconfig: packageResolve('tsconfig.json'),
+      tsconfigOverride: {
+        compilerOptions: {
+          declarationMap: true,
+        },
+        exclude: ['**/__tests__'],
+      },
     }),
     ...basePlugins,
   ];
