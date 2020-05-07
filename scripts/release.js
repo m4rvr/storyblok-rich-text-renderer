@@ -16,6 +16,7 @@ const preReleaseId = args.preid || preRelease ? preRelease[0] : 'alpha';
 const isDryRun = args.dry;
 const skipTests = args.skipTests;
 const skipBuild = args.skipBuild;
+const skipChangelog = args.skipChangelog;
 
 const incrementVersion = (i) => semver.inc(currentVersion, i, preReleaseId);
 const bin = (name) => resolve(__dirname, '../node_modules/.bin/' + name);
@@ -101,7 +102,11 @@ async function main() {
 
   // Generate changelog
   step('Generating changelog...');
-  await run('yarn', ['changelog']);
+  if (!skipChangelog) {
+    await run('yarn', ['changelog']);
+  } else {
+    console.log(chalk.gray('(skipped)'));
+  }
 
   // Committing changes if any
   const { stdout } = await run('git', ['diff'], {
