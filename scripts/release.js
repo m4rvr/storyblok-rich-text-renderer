@@ -49,7 +49,7 @@ async function main() {
       message: 'Select release type',
       choices: versionIncrements
         .map((i) => `${i} (${incrementVersion(i)})`)
-        .concat(['custom (Please specify)']),
+        .concat(['custom']),
     });
 
     if (release === 'custom') {
