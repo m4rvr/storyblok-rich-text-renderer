@@ -1,10 +1,14 @@
 module.exports = {
+  preset: 'ts-jest',
   globals: {
     'vue-jest': {
       babelConfig: false,
     },
   },
   moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
+  moduleNameMapper: {
+    '^@marvr/(.*?)$': '<rootDir>/packages/$1/src',
+  },
   transform: {
     '.*\\.(vue)$': 'vue-jest',
     '^.+\\.tsx?$': 'ts-jest',
@@ -15,8 +19,9 @@ module.exports = {
   coverageReporters: ['html', 'lcov', 'text'],
   collectCoverageFrom: [
     'packages/*/src/**/*.(ts|vue)',
-    '!packages/rich-text-types/src/**',
+    '!packages/storyblok-rich-text-types/src/**',
   ],
   watchPathIgnorePatterns: ['/node_modules/', '/dist/', '/.git/'],
   rootDir: __dirname,
+  testPathIgnorePatterns: ['/node_modules/'],
 };
