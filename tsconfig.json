@@ -1,25 +1,28 @@
 {
   "compilerOptions": {
+    "sourceMap": false,
     "target": "es2019",
     "module": "esnext",
     "moduleResolution": "node",
+    "allowJs": false,
     "strict": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
+    "removeComments": false,
     "lib": [
       "dom",
-      "dom.iterable",
       "esnext"
     ],
-    "baseUrl": "./packages",
+    "types": [
+      "jest",
+      "node"
+    ],
+    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
-      "@marvinrudolph/storyblok-rich-text-types": [
-        "rich-text-types/src"
-      ],
-      "@marvinrudolph/vue-storyblok-rich-text-renderer": [
-        "vue-renderer/src"
-      ]
+      "@marvr/*": ["packages/*/src"],
     },
   },
   "files": [
@@ -27,5 +30,9 @@
     "shims-vue.d.ts",
     "shims-tsx.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "include": [
+    "packages/*/src",
+    "packages/*/__tests__",
+    "tests"
+  ]
 }

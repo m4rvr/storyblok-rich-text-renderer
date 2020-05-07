@@ -1,8 +1,24 @@
-const { readdirSync } = require('fs');
+const { readdirSync, remove } = require('fs-extra');
 const { resolve } = require('path');
+const chalk = require('chalk');
 
-/* exports.targets = readdirSync(resolve(__dirname, '../packages')).filter(
-  (p) => !p.endsWith('.ts') && !p.startsWith('.'),
-); */
+const packagesDir = resolve(__dirname, '../packages');
+exports.packagesDir = packagesDir;
 
-exports.targets = ['rich-text-types', 'vue-renderer'];
+exports.targets = readdirSync(packagesDir);
+
+const step = (message) => {
+  console.log();
+  console.log(chalk.cyan.bold(message));
+};
+
+exports.step = step;
+
+exports.removeDistFolderOfTargets = async (targets) => {
+  step(`Removing ${chalk.yellow.bold('dist')} directory of each target ...`);
+
+  for (const target of targets) {
+    const pkgDir = resolve(packagesDir, target);
+    await remove(`${pkgDir}/dist`);
+  }
+};

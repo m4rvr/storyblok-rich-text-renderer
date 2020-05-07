@@ -1,75 +1,54 @@
 import { resolve } from 'path';
 import typescript from 'rollup-plugin-typescript2';
-import nodeResolve from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel';
 import vue from 'rollup-plugin-vue';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import cjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import json from '@rollup/plugin-json';
-import builtins from 'rollup-plugin-node-builtins';
-import globals from 'rollup-plugin-node-globals';
 import { config } from 'dotenv';
 config();
 
+const packagesDir = resolve(__dirname, 'packages');
 const targets = process.env.TARGETS.split(' ');
 const isDev = process.env.NODE_ENV === 'development';
-const packagesDir = resolve(__dirname, 'packages');
-const extensions = ['.tsx', '.ts', '.jsx', '.js'];
-const external = [
-  'vue',
-  'vue-template-compiler',
-  '@vue/composition-api',
-  '@babel/runtime',
-  '@babel/runtime-corejs3',
-  '@babel/plugin-transform-runtime',
-  'core-js',
-];
+const shouldEmitDeclaration = process.env.TYPES != null;
 
-const basePlugins = [
+const plugins = [
+  typescript({
+    check: !isDev,
+    cacheRoot: resolve(__dirname, 'node_modules/.rts2_cache'),
+    tsconfig: resolve(__dirname, 'tsconfig.json'),
+    tsconfigOverride: {
+      compilerOptions: {
+        sourceMap: true,
+        declaration: shouldEmitDeclaration,
+        declarationMap: shouldEmitDeclaration,
+      },
+      exclude: ['tests', '**/__tests__'],
+    },
+  }),
+  vue(),
   nodeResolve({
     preferBuiltins: true,
     browser: true,
   }),
   cjs(),
-  vue({
-    css: false,
-  }),
-  /* builtins(),
-  globals(), */
-  babel({
-    extensions,
-    exclude: 'node_modules/**',
-    babelHelpers: 'runtime',
-    plugins: [['@babel/plugin-transform-runtime']],
-    babelrc: false,
-  }),
   json(),
 ];
 
-const configs = targets.map((p) => createConfig(p));
+const external = ['vue', 'vue-template-compiler', '@vue/composition-api'];
 
-// Build fixtures if development mode
+const configs = targets.map((target) => createConfig(target));
+
 if (isDev) {
-  configs.push(getFixturesConfig());
+  plugins.push(getReplacementPlugin());
+  configs.push(createFixturesConfig());
 }
 
 function createConfig(target) {
   const packageDir = resolve(packagesDir, target);
   const packageResolve = (p) => resolve(packageDir, p);
   const pkg = require(packageResolve('package.json'));
-
-  const plugins = [
-    typescript({
-      tsconfig: packageResolve('tsconfig.json'),
-      tsconfigOverride: {
-        compilerOptions: {
-          declarationMap: true,
-        },
-        exclude: ['**/__tests__'],
-      },
-    }),
-    ...basePlugins,
-  ];
 
   const output = [
     {
@@ -79,68 +58,52 @@ function createConfig(target) {
     },
   ];
 
+  external.push(
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  );
+
   if (!isDev) {
-    const { terser } = require('rollup-plugin-terser');
     const globals = {
       vue: 'Vue',
       '@vue/composition-api': 'vueCompositionApi',
-      '@marvinrudolph/storyblok-rich-text-types': 'storyblokRichTextTypes',
+      '@marvr/storyblok-rich-text-types': 'storyblokRichTextTypes',
     };
 
-    const outputConfig = {
+    output.push({
       exports: 'named',
       name: pkg.buildOptions.name,
       sourcemap: true,
+      file: packageResolve(pkg.main),
+      format: 'umd',
       globals,
-    };
-
-    output.push(
-      {
-        ...outputConfig,
-        file: packageResolve(pkg.main),
-        format: 'umd',
-      },
-      {
-        ...outputConfig,
-        file: packageResolve(pkg.unpkg),
-        format: 'iife',
-        plugins: [terser()],
-      },
-    );
-
-    plugins.push(getReplacementPlugin());
+    });
   }
 
   return {
     input: packageResolve('src/index.ts'),
     output,
     plugins,
-    external: [...external, ...Object.keys(pkg.dependencies || {})],
+    external,
   };
 }
 
-function getFixturesConfig() {
+function createFixturesConfig() {
   const fixturesFolder = resolve(__dirname, 'tests/fixtures');
 
   return {
     input: resolve(fixturesFolder, 'src/index.ts'),
     output: {
-      file: resolve(fixturesFolder, 'dist/main.js'),
+      file: resolve(fixturesFolder, 'dist/main.esm.js'),
       format: 'es',
     },
-    plugins: [
-      typescript({
-        tsconfig: resolve(fixturesFolder, 'tsconfig.json'),
-        check: false,
-      }),
-      getReplacementPlugin(),
-      ...basePlugins,
-    ],
+    plugins,
     onwarn: (msg, warn) => {
       if (!/Circular/.test(msg)) {
         warn(msg);
       }
     },
+    external: [...external, '@marvr/vue-storyblok-rich-text-renderer'],
   };
 }
 
