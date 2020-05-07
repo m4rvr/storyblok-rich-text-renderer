@@ -23,7 +23,7 @@
   "main": "dist/storyblok-rich-text-types.umd.js",
   "unpkg": "dist/storyblok-rich-text-types.min.js",
   "module": "dist/storyblok-rich-text-types.esm.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/storyblok-rich-text-types.d.ts",
   "scripts": {
     "build": "tsc"
   },

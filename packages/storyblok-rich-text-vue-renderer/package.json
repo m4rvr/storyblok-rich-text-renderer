@@ -22,7 +22,7 @@
   "main": "dist/storyblok-rich-text-vue-renderer.umd.js",
   "unpkg": "dist/storyblok-rich-text-vue-renderer.min.js",
   "module": "dist/storyblok-rich-text-vue-renderer.esm.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/storyblok-rich-text-vue-renderer.d.ts",
   "scripts": {
     "build": "tsc"
   },
