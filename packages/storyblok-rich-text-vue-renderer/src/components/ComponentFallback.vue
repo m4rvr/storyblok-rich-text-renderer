@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { ComponentBody } from '@marvinrudolph/storyblok-rich-text-types';
+import { ComponentBody } from '@marvr/storyblok-rich-text-types';
 
 export default defineComponent({
   name: 'SbComponentFallback',

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { LinkAttributes } from '@marvinrudolph/storyblok-rich-text-types';
+import { LinkAttributes } from '@marvr/storyblok-rich-text-types';
 
 export default defineComponent({
   name: 'SbLink',

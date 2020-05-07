@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Mark } from '@marvinrudolph/storyblok-rich-text-types';
+import { Mark } from '@marvr/storyblok-rich-text-types';
 import {
   SbBold,
   SbStrong,

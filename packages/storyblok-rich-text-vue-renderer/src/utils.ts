@@ -7,7 +7,7 @@ import {
   TextType,
   ComponentNode,
   ComponentType,
-} from '@marvinrudolph/storyblok-rich-text-types';
+} from '@marvr/storyblok-rich-text-types';
 
 function createEnumChecker<T extends string, TEnumValue extends string>(
   enumVariable: { [key in T]: TEnumValue },

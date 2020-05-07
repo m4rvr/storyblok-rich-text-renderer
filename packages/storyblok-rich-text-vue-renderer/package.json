@@ -1,5 +1,5 @@
 {
-  "name": "@marvinrudolph/vue-storyblok-rich-text-renderer",
+  "name": "@marv/storyblok-rich-text-vue-renderer",
   "version": "0.0.0",
   "description": "Vue.js plugin for Storyblok's rich-text renderer",
   "keywords": [
@@ -19,20 +19,20 @@
     "email": "info@marvin-rudolph.de"
   },
   "sideEffects": false,
-  "main": "dist/vue-renderer.umd.js",
-  "unpkg": "dist/vue-renderer.min.js",
-  "module": "dist/vue-renderer.esm.js",
+  "main": "dist/storyblok-rich-text-vue-renderer.umd.js",
+  "unpkg": "dist/storyblok-rich-text-vue-renderer.min.js",
+  "module": "dist/storyblok-rich-text-vue-renderer.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@marvinrudolph/storyblok-rich-text-types": "0.0.0"
+    "@marvr/storyblok-rich-text-types": "0.0.0"
   },
   "devDependencies": {
     "serve": "^11.3.0"
   },
   "buildOptions": {
-    "name": "VueStoryblokRichTextRenderer"
+    "name": "StoryblokRichTextVueRenderer"
   }
 }

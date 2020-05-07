@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Block } from '@marvinrudolph/storyblok-rich-text-types';
+import { Block } from '@marvr/storyblok-rich-text-types';
 import {
   SbDocument,
   SbHeading,

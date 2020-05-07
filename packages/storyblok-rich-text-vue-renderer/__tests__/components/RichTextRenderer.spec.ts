@@ -11,7 +11,7 @@ import {
 } from '..';
 import CustomButton from './CustomButton.vue';
 import CustomParagraph from './CustomParagraph.vue';
-import { Block } from '@marvinrudolph/storyblok-rich-text-types';
+import { Block } from '@marvr/storyblok-rich-text-types';
 
 describe('RichTextRenderer.vue', () => {
   let localVue: typeof Vue;

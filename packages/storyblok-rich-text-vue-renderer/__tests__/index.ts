@@ -12,7 +12,7 @@ import {
   UnderlineNode,
   ComponentNode,
   ComponentType,
-} from '@marvinrudolph/storyblok-rich-text-types';
+} from '@marvr/storyblok-rich-text-types';
 
 export function createVueInstance() {
   const localVue = createLocalVue();

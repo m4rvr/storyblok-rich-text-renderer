@@ -1,7 +1,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { useRenderer } from '../composables/useRenderer';
-import { Node } from '@marvinrudolph/storyblok-rich-text-types';
+import { Node } from '@marvr/storyblok-rich-text-types';
 import { Options } from '..';
 
 export default Vue.extend({

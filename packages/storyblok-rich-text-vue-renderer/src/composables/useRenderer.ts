@@ -7,7 +7,7 @@ import {
   Mark,
   MarkNode,
   ComponentNode,
-} from '@marvinrudolph/storyblok-rich-text-types';
+} from '@marvr/storyblok-rich-text-types';
 import {
   defaultBlockResolvers,
   defaultMarkResolvers,

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { ComponentBody } from '@marvinrudolph/storyblok-rich-text-types';
+import { ComponentBody } from '@marv/storyblok-rich-text-types';
 
 export interface ButtonComponent extends ComponentBody {
   title: string;

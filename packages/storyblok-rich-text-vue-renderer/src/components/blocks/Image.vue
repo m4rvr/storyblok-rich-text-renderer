@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { ImageAttributes } from '@marvinrudolph/storyblok-rich-text-types';
+import { ImageAttributes } from '@marvr/storyblok-rich-text-types';
 
 export default defineComponent({
   name: 'SbImage',

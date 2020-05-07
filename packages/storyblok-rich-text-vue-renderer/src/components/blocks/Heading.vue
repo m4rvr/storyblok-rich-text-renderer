@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { HeadingAttributes } from '@marvinrudolph/storyblok-rich-text-types';
+import { HeadingAttributes } from '@marvr/storyblok-rich-text-types';
 
 export default defineComponent({
   name: 'SbHeading',
