@@ -1,5 +1,5 @@
 {
-  "name": "@marv/storyblok-rich-text-types",
+  "name": "@marvr/storyblok-rich-text-types",
   "version": "0.0.0",
   "description": "Type definitions for Storyblok's rich-text",
   "keywords": [

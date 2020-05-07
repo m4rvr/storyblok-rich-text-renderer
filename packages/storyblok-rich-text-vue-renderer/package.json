@@ -1,5 +1,5 @@
 {
-  "name": "@marv/storyblok-rich-text-vue-renderer",
+  "name": "@marvr/storyblok-rich-text-vue-renderer",
   "version": "0.0.0",
   "description": "Vue.js plugin for Storyblok's rich-text renderer",
   "keywords": [
