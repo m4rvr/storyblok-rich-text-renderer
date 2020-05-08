@@ -14,6 +14,10 @@ const isDev = process.env.NODE_ENV === 'development';
 const shouldEmitDeclaration = process.env.TYPES != null;
 
 const plugins = [
+  nodeResolve({
+    preferBuiltins: true,
+    browser: true,
+  }),
   typescript({
     check: !isDev,
     cacheRoot: resolve(__dirname, 'node_modules/.rts2_cache'),
@@ -28,10 +32,6 @@ const plugins = [
     },
   }),
   vue(),
-  nodeResolve({
-    preferBuiltins: true,
-    browser: true,
-  }),
   cjs(),
   json(),
 ];
@@ -103,7 +103,6 @@ function createFixturesConfig() {
         warn(msg);
       }
     },
-    external: [...external, '@marvr/vue-storyblok-rich-text-renderer'],
   };
 }
 
