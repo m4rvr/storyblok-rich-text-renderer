@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Options } from '@marv/vue-storyblok-rich-text-renderer';
+import { Options } from '@marvr/storyblok-rich-text-vue-renderer';
 
 declare module 'vue/types/vue' {
   interface Vue {
