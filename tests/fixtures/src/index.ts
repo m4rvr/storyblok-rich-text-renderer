@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueCompositionApi from '@vue/composition-api';
-import RichTextRenderer from '@marvr/vue-storyblok-rich-text-renderer';
+import RichTextRenderer from '@marvr/storyblok-rich-text-vue-renderer';
 import { Block } from '@marvr/storyblok-rich-text-types';
 import CustomParagraph from './components/CustomParagraph.vue';
 import SbButton from './components/Button.vue';
