@@ -22,8 +22,8 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@marvr/*": ["packages/*/src"],
-    },
+      "@marvr/*": ["packages/*/src"]
+    }
   },
   "files": [
     "plugin.d.ts",
