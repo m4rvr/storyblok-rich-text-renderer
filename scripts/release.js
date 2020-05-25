@@ -178,7 +178,7 @@ async function publishPackage(pkgName, version, runIfNotDry) {
     return;
   }
 
-  const releaseTag = preRelease ? preRelease[0] : null;
+  const releaseTag = null;
 
   step(`Publishing ${pkg.name}...`);
   try {
