@@ -30,7 +30,7 @@
     "@marvr/storyblok-rich-text-types": "2.0.0-alpha.0"
   },
   "devDependencies": {
-    "serve": "^11.3.0"
+    "serve": "^11.3.1"
   },
   "buildOptions": {
     "name": "StoryblokRichTextVueRenderer"
