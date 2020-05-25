@@ -21,4 +21,5 @@ jobs:
             - node_modules
             - ~/.cache/yarn
           key: v2-dependencies-{{ checksum "yarn.lock" }}-1
+      - run: yarn build
       - run: yarn test
