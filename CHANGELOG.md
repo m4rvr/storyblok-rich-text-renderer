@@ -1,3 +1,13 @@
+# [2.0.0-alpha.1](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-05-25)
+
+
+### Features
+
+* added css class options ([95f9f7b](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/commit/95f9f7b7d520e7524ea4fba77216aa89fb682b9b))
+* improved default link component ([0be603c](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/commit/0be603cebc334e34a3f5e0b124d7e321a7425f2c))
+
+
+
 # 2.0.0-alpha.0 (2020-05-14)
 
 
