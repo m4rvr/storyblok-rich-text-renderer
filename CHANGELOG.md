@@ -1,3 +1,12 @@
+# [2.0.0-alpha.2](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2020-05-25)
+
+
+### Bug Fixes
+
+* **types:** add email to LinkType ([8132590](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/commit/813259069aabcea5ba004fea2d5428bd940cd9c9))
+
+
+
 # [2.0.0-alpha.1](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-05-25)
 
 
