@@ -8,6 +8,7 @@ import {
   SbItalic,
   SbCode,
   SbLink,
+  SbStyled,
 } from '../components/marks';
 
 export type MarkResolvers = {
@@ -22,4 +23,5 @@ export const defaultMarkResolvers: MarkResolvers = {
   [Mark.ITALIC]: SbItalic,
   [Mark.CODE]: SbCode,
   [Mark.LINK]: SbLink,
+  [Mark.STYLED]: SbStyled,
 };

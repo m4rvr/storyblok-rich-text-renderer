@@ -6,4 +6,5 @@ export enum Mark {
   ITALIC = 'italic',
   CODE = 'code',
   LINK = 'link',
+  STYLED = 'styled',
 }

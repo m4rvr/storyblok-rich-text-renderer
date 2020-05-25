@@ -5,3 +5,4 @@ export { default as SbUnderline } from './Underline.vue';
 export { default as SbItalic } from './Italic.vue';
 export { default as SbCode } from './Code.vue';
 export { default as SbLink } from './Link.vue';
+export { default as SbStyled } from './Styled.vue';

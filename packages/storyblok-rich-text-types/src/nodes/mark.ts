@@ -48,3 +48,12 @@ export interface LinkNode extends MarkNode {
   type: Mark.LINK;
   attrs: LinkAttributes;
 }
+
+export interface StyledAttributes {
+  class: string;
+}
+
+export interface StyledNode extends MarkNode {
+  type: Mark.STYLED;
+  attrs: StyledAttributes;
+}
