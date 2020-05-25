@@ -35,7 +35,7 @@ export interface CodeNode extends MarkNode {
 
 // Link
 export type LinkTarget = '_self' | '_blank' | null;
-export type LinkType = 'url' | 'story' | 'asset';
+export type LinkType = 'url' | 'story' | 'asset' | 'email';
 
 export interface LinkAttributes {
   href: string;
