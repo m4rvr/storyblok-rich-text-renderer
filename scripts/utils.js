@@ -5,16 +5,24 @@ const chalk = require('chalk');
 const packagesDir = resolve(__dirname, '../packages');
 exports.packagesDir = packagesDir;
 
-exports.targets = readdirSync(packagesDir);
+exports.targets = readdirSync(packagesDir).filter(f => {
+  const pkg = require(`../packages/${f}/package.json`);
 
-const step = (message) => {
+  if (pkg.private && !pkg.buildOptions) {
+    return false;
+  }
+
+  return true;
+});
+
+const step = message => {
   console.log();
   console.log(chalk.cyan.bold(message));
 };
 
 exports.step = step;
 
-exports.removeDistFolderOfTargets = async (targets) => {
+exports.removeDistFolderOfTargets = async targets => {
   step(`Removing ${chalk.yellow.bold('dist')} directory of each target ...`);
 
   for (const target of targets) {
