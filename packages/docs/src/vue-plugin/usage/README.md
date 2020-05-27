@@ -69,7 +69,7 @@ You can use and implement this plugin like every other Vue.js plugin in Nuxt.js.
 Read more about [Nuxt.js plugins](https://nuxtjs.org/guide/plugins).
 :::
 
-1. Create a file named `rich-text-renderer.js` in the `plugins/` directory and register the plugin with `Vue.use()` like described [here](http://localhost:8080/vue-plugin/#configuration).
+1. Create a file named `rich-text-renderer.js` in the `plugins/` directory and register the plugin with `Vue.use()` like described [here](../#configuration).
 2. Add it to the `plugins` property in your `nuxt.config.js`/`nuxt.config.ts`.
 
 ``` js
