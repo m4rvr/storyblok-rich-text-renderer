@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Strike.vue renders template with default slot 1`] = `"<s>Strike</s>"`;

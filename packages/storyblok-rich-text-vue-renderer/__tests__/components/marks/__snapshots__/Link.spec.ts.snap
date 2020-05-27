@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link.vue renders template with attributes & default slot 1`] = `"<a>Link</a>"`;

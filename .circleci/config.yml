@@ -1,0 +1,25 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+
+    branches:
+      only:
+        - next
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v2-dependencies-{{ checksum "yarn.lock" }}-1
+          - v2-dependencies-
+      - run: yarn --frozen-lockfile
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+          key: v2-dependencies-{{ checksum "yarn.lock" }}-1
+      - run: yarn build
+      - run: yarn test

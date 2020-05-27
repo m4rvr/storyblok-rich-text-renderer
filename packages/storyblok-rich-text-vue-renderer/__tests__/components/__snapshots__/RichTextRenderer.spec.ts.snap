@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RichTextRenderer.vue renders custom paragraph 1`] = `
+"<div document=\\"[object Object]\\" options=\\"[object Object]\\">
+  <div>
+    No rendering definition for component
+    <strong>button</strong> found.
+  </div>
+  <div>
+    No rendering definition for component
+    <strong>button</strong> found.
+  </div>
+</div>"
+`;
+
+exports[`RichTextRenderer.vue renders custom storyblok component 1`] = `
+"<div document=\\"[object Object]\\" options=\\"[object Object]\\">
+  <div>Custom Button</div>
+  <div>Custom Button</div>
+</div>"
+`;
+
+exports[`RichTextRenderer.vue renders multiple different nodes 1`] = `
+"<div document=\\"[object Object],[object Object]\\">
+  <h1>Heading</h1>
+  <p>Paragraph</p>
+</div>"
+`;
+
+exports[`RichTextRenderer.vue renders multiple paragraph nodes 1`] = `
+"<div document=\\"[object Object],[object Object]\\">
+  <p>Paragraph</p>
+  <p>Paragraph</p>
+</div>"
+`;
+
+exports[`RichTextRenderer.vue renders paragraph with multiple marks 1`] = `
+"<div document=\\"[object Object]\\">
+  <p>Para<u><strong>graph</strong></u></p>
+</div>"
+`;
+
+exports[`RichTextRenderer.vue renders paragraph with strong mark 1`] = `
+"<div document=\\"[object Object]\\">
+  <p>Para<strong>graph</strong></p>
+</div>"
+`;
+
+exports[`RichTextRenderer.vue renders single paragraph node 1`] = `"<p>Paragraph</p>"`;
