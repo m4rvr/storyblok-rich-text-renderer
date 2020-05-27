@@ -5,10 +5,6 @@ jobs:
     docker:
       - image: circleci/node:latest
 
-    branches:
-      only:
-        - next
-
     steps:
       - checkout
       - restore_cache:
