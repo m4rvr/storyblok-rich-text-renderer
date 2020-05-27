@@ -38,7 +38,7 @@ module.exports = {
   ],
   theme: '@vuepress/theme-vue',
   themeConfig: {
-    repo: 'MarvinRudolph/storyblok-rich-text-renderer/tree/next',
+    repo: 'MarvinRudolph/storyblok-rich-text-renderer',
     docsDir: 'docs',
     docsBranch: 'master',
     editLinks: true,
