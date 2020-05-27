@@ -25,7 +25,7 @@ yarn add @marvr/storyblok-rich-text-vue-renderer
 npm install @marvr/storyblok-rich-text-vue-renderer
 ```
 
-> This also installs [@marvr/storyblok-rich-text-types](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/next/packages/storyblok-rich-text-types) so you don't need it to install it separately.
+> This also installs [@marvr/storyblok-rich-text-types](../storyblok-rich-text-types) so you don't need it to install it separately.
 
 ## Usage :joystick:
 

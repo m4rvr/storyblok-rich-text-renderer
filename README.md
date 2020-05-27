@@ -21,11 +21,11 @@ With the separate types package you know exactly which node has which attributes
 
 ## Packages :package:
 
-**[@marvr/storyblok-rich-text-types](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/next/packages/storyblok-rich-text-types):**
+**[@marvr/storyblok-rich-text-types](./packages/storyblok-rich-text-types):**
 
 Type definitions for every node
 
-**[@marvr/storyblok-rich-text-vue-renderer](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/next/packages/storyblok-rich-text-vue-renderer):**
+**[@marvr/storyblok-rich-text-vue-renderer](./packages/storyblok-rich-text-vue-renderer):**
 
 Vue.js plugin for rendering the rich-text content
 
