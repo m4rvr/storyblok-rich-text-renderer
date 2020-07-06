@@ -1,5 +1,5 @@
 import Vue, { VNode } from 'vue';
-import { createElement as h } from '@vue/composition-api';
+import { h } from '@vue/composition-api';
 import {
   Node,
   Block,
