@@ -4,7 +4,7 @@ import { SbHeading } from '../../../src/components';
 import { createVueInstance } from '../..';
 
 describe('Heading.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   const attrs = {
@@ -12,8 +12,6 @@ describe('Heading.vue', () => {
   };
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbHeading, {
         localVue,

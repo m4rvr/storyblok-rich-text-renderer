@@ -4,7 +4,7 @@ import { SbComponentFallback } from '../../src/components';
 import { createVueInstance } from '..';
 
 describe('ComponentFallback.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   const body = {
@@ -12,8 +12,6 @@ describe('ComponentFallback.vue', () => {
   };
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbComponentFallback, {
         localVue,

@@ -4,7 +4,7 @@ import { SbCodeBlock } from '../../../src/components';
 import { createVueInstance } from '../..';
 
 describe('CodeBlock.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   const attrs = {
@@ -12,8 +12,6 @@ describe('CodeBlock.vue', () => {
   };
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbCodeBlock, {
         localVue,

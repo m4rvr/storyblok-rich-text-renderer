@@ -4,12 +4,10 @@ import { SbUnderline } from '../../../src/components';
 import { createVueInstance } from '../..';
 
 describe('Underline.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbUnderline, {
         localVue,

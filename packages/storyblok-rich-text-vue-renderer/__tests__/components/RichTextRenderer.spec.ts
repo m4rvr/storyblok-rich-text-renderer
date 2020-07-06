@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
 import { RichTextRenderer } from '../../src/components';
 import {
@@ -14,7 +13,7 @@ import CustomParagraph from './CustomParagraph.vue';
 import { Block } from '@marvr/storyblok-rich-text-types';
 
 describe('RichTextRenderer.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
 
   const WrapperComponent = {
     components: {
@@ -26,10 +25,6 @@ describe('RichTextRenderer.vue', () => {
       </div>
     `,
   };
-
-  beforeEach(() => {
-    localVue = createVueInstance();
-  });
 
   test('renders single paragraph node', () => {
     const wrapper = shallowMount(RichTextRenderer, {

@@ -4,12 +4,10 @@ import { SbBold } from '../../../src/components';
 import { createVueInstance } from '../..';
 
 describe('Bold.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbBold, {
         localVue,

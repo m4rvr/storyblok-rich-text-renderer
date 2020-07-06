@@ -4,7 +4,7 @@ import { SbImage } from '../../../src/components';
 import { createVueInstance } from '../..';
 
 describe('Image.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   const attrs = {
@@ -14,8 +14,6 @@ describe('Image.vue', () => {
   };
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbImage, {
         localVue,

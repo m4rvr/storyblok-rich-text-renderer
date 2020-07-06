@@ -4,12 +4,10 @@ import { SbParagraph } from '../../../src/components';
 import { createVueInstance } from '../..';
 
 describe('Paragraph.vue', () => {
-  let localVue: typeof Vue;
+  const localVue = createVueInstance();
   let mountFunction: (options?: object) => Wrapper<Vue>;
 
   beforeEach(() => {
-    localVue = createVueInstance();
-
     mountFunction = (options) => {
       return shallowMount(SbParagraph, {
         localVue,
