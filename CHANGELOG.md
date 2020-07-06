@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0...v2.0.1) (2020-07-06)
+
+
+### Bug Fixes
+
+* **vue-renderer:** pass href to router-link ([99edefe](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/commit/99edefe5f371c907b536d7c620c599cd932599ea))
+
+
+
 # [2.0.0](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0-alpha.2...v2.0.0) (2020-07-06)
 
 
