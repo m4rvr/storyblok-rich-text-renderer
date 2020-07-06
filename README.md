@@ -40,4 +40,4 @@ Vue.js plugin for rendering the rich-text content
 
 ## Documentation :notebook_with_decorative_cover:
 
-The full documentation can be found [here](https://storyblok-rich-text-renderer.netlify.com/).
+The full documentation can be found [here](https://storyblok-rich-text-renderer.netlify.app/).
