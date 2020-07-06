@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0-alpha.2...v2.0.0) (2020-07-06)
+
+
+### Bug Fixes
+
+* correct import of `createElement`/`h` ([6037909](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/commit/60379097710e86870adfe357661178b4e695d2b5))
+
+
+
 # [2.0.0-alpha.2](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2020-05-25)
 
 
