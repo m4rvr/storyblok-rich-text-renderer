@@ -37,5 +37,5 @@ npm install @marvr/storyblok-rich-text-vue-renderer
 
 ## Documentation :notebook_with_decorative_cover:
 
-The full documentation can be found [here](https://storyblok-rich-text-renderer.netlify.com/).
+The full documentation can be found [here](https://storyblok-rich-text-renderer.netlify.app/).
 
