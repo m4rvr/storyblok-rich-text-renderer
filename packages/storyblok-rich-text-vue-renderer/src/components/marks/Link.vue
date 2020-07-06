@@ -1,5 +1,5 @@
 <template>
-  <router-link v-if="linkType === 'story'" :target="target">
+  <router-link v-if="linkType === 'story'" :target="target" :to="href">
     <slot />
   </router-link>
   <a v-else-if="linkType === 'email'" :href="`mailto:${href}`"><slot /></a>
