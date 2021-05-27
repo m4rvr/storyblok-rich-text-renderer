@@ -42,6 +42,7 @@ export interface LinkAttributes {
   uuid: string | null;
   target: LinkTarget;
   linktype: LinkType;
+  anchor?: string;
 }
 
 export interface LinkNode extends MarkNode {
