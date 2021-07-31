@@ -5,15 +5,12 @@
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --write --parser typescript \"packages/**/*.ts\"",
     "build": "pnpm build -r --parallel && pnpm build:types",
-    "build:types": "tsc --emitDeclarationOnly && node scripts/build-types.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "publish": "lerna publish --dist-tag next"
+    "build:types": "tsc --emitDeclarationOnly && node scripts/build-types.js"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.18.4",
     "@types/node": "^16.4.3",
     "chalk": "^4.1.1",
-    "conventional-changelog-cli": "^2.1.1",
     "esbuild": "^0.12.16",
     "esmon": "^1.0.4",
     "fs-extra": "^10.0.0",

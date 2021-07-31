@@ -3,5 +3,10 @@
     "packages/*"
   ],
   "version": "3.0.0",
-  "conventionalCommits": true
+  "conventionalCommits": true,
+  "command": {
+    "version": {
+      "message": "chore(release): publish %s"
+    }
+  }
 }
