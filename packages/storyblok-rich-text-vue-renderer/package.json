@@ -16,7 +16,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@marvr/storyblok-rich-text-types": "workspace:^",
+    "@marvr/storyblok-rich-text-types": "^3.0.0",
     "vue": "^3.0.5"
   },
   "devDependencies": {
