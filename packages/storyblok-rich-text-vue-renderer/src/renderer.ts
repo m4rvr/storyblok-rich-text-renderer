@@ -1,4 +1,4 @@
-import { createTextVNode, h } from 'vue';
+import { createTextVNode, h, isVNode } from 'vue';
 import {
   Node,
   isTextNode,
@@ -16,7 +16,13 @@ import {
   MarkNodesWithoutOptions,
   MarkNodesWithAttributes,
 } from '@marvr/storyblok-rich-text-types';
-import { RenderedNode, resolvers, componentResolvers } from './resolvers';
+import {
+  RenderedNode,
+  resolvers,
+  componentResolvers,
+  Resolvers,
+  Component,
+} from './resolvers';
 
 export function createRenderer() {
   const renderDocument = (node: Node) => {
@@ -138,11 +144,21 @@ export function createRenderer() {
   function resolveBlockNodeWithContent(node: BlockNodesWithContent) {
     const resolver = resolvers[node.type];
     const children = renderChildren(node);
+
+    if (isComponentResolver(resolver)) {
+      return h(resolver, null, { default: () => children });
+    }
+
     return resolver({ children });
   }
 
   function resolveBlockNodeWithAttributes(node: BlockNodesWithAttributes) {
     const resolver = resolvers[node.type];
+
+    if (isComponentResolver(resolver)) {
+      return h(resolver, node.attrs);
+    }
+
     return resolver({ attrs: node.attrs });
   }
 
@@ -152,6 +168,10 @@ export function createRenderer() {
     const resolver = resolvers[node.type];
     const children = renderChildren(node);
 
+    if (isComponentResolver(resolver)) {
+      return h(resolver, node.attrs, { default: () => children });
+    }
+
     return resolver({
       children,
       attrs: node.attrs as never,
@@ -160,6 +180,11 @@ export function createRenderer() {
 
   function resolveBlockNodeWithoutOptions(node: BlockNodesWithoutOptions) {
     const resolver = resolvers[node.type];
+
+    if (isComponentResolver(resolver)) {
+      return h(resolver);
+    }
+
     return resolver();
   }
 
@@ -168,6 +193,11 @@ export function createRenderer() {
     text: TextNode['text'],
   ) {
     const resolver = resolvers[node.type];
+
+    if (isComponentResolver(resolver)) {
+      return h(resolver, { default: () => text });
+    }
+
     return resolver({ text });
   }
 
@@ -176,8 +206,19 @@ export function createRenderer() {
     text: TextNode['text'],
   ) {
     const resolver = resolvers[node.type];
+
+    if (isComponentResolver(resolver)) {
+      return h(resolver, node.attrs, { default: () => text });
+    }
+
     return resolver({ text, attrs: node.attrs as never });
   }
 
   return { renderDocument };
+}
+
+export function isComponentResolver(
+  resolver: Resolvers[keyof Resolvers],
+): resolver is Component {
+  return typeof resolver !== 'function' && !isVNode(resolver);
 }

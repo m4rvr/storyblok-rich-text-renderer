@@ -16,31 +16,34 @@ export type RenderedNode = ReturnType<typeof h>;
 export type Component = DefineComponent<{}, {}, any>;
 
 export type BlockResolverFunction = () => RenderedNode | RenderedNode[];
-export type BlockResolver = BlockResolverFunction;
-export type BlockResolverWithChildren = (options: {
-  children: RenderedNode[];
-}) => RenderedNode | RenderedNode[];
+export type BlockResolverFunctionWithOptions<O extends { [key: string]: any }> =
+  (options: O) => RenderedNode | RenderedNode[];
 
-export type BlockResolverWithAttributes<A extends NodeAttributes> = (options: {
-  attrs: A;
-}) => RenderedNode | RenderedNode[];
+export type BlockResolver = Component | BlockResolverFunction;
+
+export type BlockResolverWithChildren =
+  | Component
+  | BlockResolverFunctionWithOptions<{ children: RenderedNode[] }>;
+
+export type BlockResolverWithAttributes<A extends NodeAttributes> =
+  | Component
+  | BlockResolverFunctionWithOptions<{ attrs: A }>;
 
 export type BlockResolverWithChildrenAndAttributes<A extends NodeAttributes> =
-  (options: {
-    children: RenderedNode[];
-    attrs: A;
-  }) => RenderedNode | RenderedNode[];
+  | Component
+  | BlockResolverFunctionWithOptions<{ children: RenderedNode[]; attrs: A }>;
 
 export type MarkResolverFunction = (options: {
   text: TextNode['text'];
 }) => RenderedNode;
 
-export type MarkResolverWithAttributes<A extends NodeAttributes> = (options: {
-  text: TextNode['text'];
-  attrs: A;
-}) => RenderedNode;
+export type MarkResolverFunctionWithAttributes<A extends NodeAttributes> =
+  (options: { text: TextNode['text']; attrs: A }) => RenderedNode;
 
-export type MarkResolver = MarkResolverFunction;
+export type MarkResolver = Component | MarkResolverFunction;
+export type MarkResolverWithAttributes<A extends NodeAttributes> =
+  | Component
+  | MarkResolverFunctionWithAttributes<A>;
 
 export interface ComponentFields {
   [key: string]: any;
