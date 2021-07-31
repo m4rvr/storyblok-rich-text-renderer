@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "paths": {
+      "@marvr/*": ["packages/*/src"]
+    },
+  },
+  "include": ["packages/*/src"]
+}

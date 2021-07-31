@@ -1,0 +1,14 @@
+{
+  "name": "@marvr/storyblok-rich-text-types",
+  "version": "3.0.0",
+  "main": "./dist/storyblok-rich-text-types.cjs.js",
+  "module": "./dist/storyblok-rich-text-types.es.js",
+  "types": "./dist/storyblok-rich-text-types.d.ts",
+  "scripts": {
+    "build": "pnpm clean && rollup -c",
+    "clean": "rm -rf dist"
+  },
+  "files": [
+    "dist"
+  ]
+}
