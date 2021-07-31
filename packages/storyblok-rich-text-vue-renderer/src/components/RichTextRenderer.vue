@@ -1,37 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {
-  NodeTypes,
-  ParagraphNode,
-  TextNode,
-  DocumentNode,
-  ImageNode,
-} from '@marvr/storyblok-rich-text-types';
+import { DocumentNode } from '@marvr/storyblok-rich-text-types';
 import { renderer } from '../plugin';
-
-const textNode: TextNode = {
-  type: NodeTypes.TEXT,
-  text: 'my cool text',
-};
-
-const paragraph: ParagraphNode = {
-  type: NodeTypes.PARAGRAPH,
-  content: [textNode, textNode],
-};
-
-const image: ImageNode = {
-  type: NodeTypes.IMAGE,
-  attrs: {
-    src: 'foo.jpg',
-    alt: 'alternative',
-    title: 'title',
-  },
-};
-
-const doc: DocumentNode = {
-  type: NodeTypes.DOCUMENT,
-  content: [paragraph, paragraph, image],
-};
 
 const docReal = {
   type: 'doc',
