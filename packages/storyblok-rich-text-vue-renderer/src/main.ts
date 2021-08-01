@@ -1,10 +1,14 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { plugin } from './plugin';
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [],
 });
 
-createApp(App).use(router).mount('#app');
+const app = createApp(App);
+app.use(plugin());
+app.use(router);
+app.mount('#app');

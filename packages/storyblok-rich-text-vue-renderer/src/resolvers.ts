@@ -95,7 +95,7 @@ export type Resolvers = {
   [NodeTypes.COMPONENT]: () => RenderedNode;
 };
 
-export const resolvers: Resolvers = {
+export const defaultResolvers: Resolvers = {
   // Blocks
   [NodeTypes.DOCUMENT]: ({ children }) => children,
   [NodeTypes.HEADING]: ({ children, attrs }) => h(`h${attrs.level}`, children),

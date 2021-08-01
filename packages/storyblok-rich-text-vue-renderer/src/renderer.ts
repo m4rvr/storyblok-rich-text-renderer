@@ -16,15 +16,10 @@ import {
   MarkNodesWithoutOptions,
   MarkNodesWithAttributes,
 } from '@marvr/storyblok-rich-text-types';
-import {
-  RenderedNode,
-  resolvers,
-  componentResolvers,
-  Resolvers,
-  Component,
-} from './resolvers';
+import { RenderedNode, Resolvers, Component } from './resolvers';
+import type { MergedResolvers } from './plugin';
 
-export function createRenderer() {
+export function createRenderer(resolvers: MergedResolvers) {
   const renderDocument = (node: Node) => {
     if (Array.isArray(node)) return renderNodeList(node);
     return renderNode(node);
@@ -120,7 +115,7 @@ export function createRenderer() {
 
     node.attrs.body.forEach((body) => {
       const { component, _uid, ...fields } = body;
-      const resolver = componentResolvers[component];
+      const resolver = resolvers.components[component];
 
       if (resolver) {
         components.push(
