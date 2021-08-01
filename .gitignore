@@ -1,6 +1,7 @@
 # Generic
 **/node_modules
 **/temp
+**/generatedTypes
 dist
 
 # Logs

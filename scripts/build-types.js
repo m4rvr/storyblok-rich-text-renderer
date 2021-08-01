@@ -10,6 +10,10 @@ main();
 async function main() {
   for (const p of packages) {
     const pkgDir = path.resolve(__dirname, '../packages/', p);
+    const typesDir = path.resolve(__dirname, '../dist/packages', p, 'src');
+    const pkgTypesDir = path.resolve(pkgDir, 'generatedTypes');
+    await fs.copy(typesDir, pkgTypesDir);
+
     const { Extractor, ExtractorConfig } = require('@microsoft/api-extractor');
     const extractorConfigPath = path.resolve(pkgDir, `api-extractor.json`);
     const extractorConfig =
@@ -31,6 +35,8 @@ async function main() {
       );
       process.exitCode = 1;
     }
+
+    fs.remove(pkgTypesDir);
   }
 
   fs.remove(path.resolve(__dirname, '../dist'));
