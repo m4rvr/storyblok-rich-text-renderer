@@ -1,4 +1,3 @@
-<script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { DocumentNode } from '@marvr/storyblok-rich-text-types';
 import { useRenderer } from '../plugin';
@@ -16,4 +15,3 @@ export default defineComponent({
     return () => renderer.renderDocument(props.document);
   },
 });
-</script>

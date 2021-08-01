@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent, shallowReactive } from 'vue';
 import { DocumentNode } from '@marvr/storyblok-rich-text-types';
-import RichTextRenderer from './components/RichTextRenderer.vue';
+import RichTextRenderer from './components/RichTextRenderer';
 
 const doc = shallowReactive({
   type: 'doc',

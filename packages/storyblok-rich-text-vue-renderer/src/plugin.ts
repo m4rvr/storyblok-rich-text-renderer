@@ -1,6 +1,6 @@
 import { Plugin, InjectionKey, inject } from 'vue';
 import { createRenderer } from './renderer';
-import RichTextRenderer from './components/RichTextRenderer.vue';
+import RichTextRenderer from './components/RichTextRenderer';
 import { Resolvers, ComponentResolvers, defaultResolvers } from './resolvers';
 
 const key: InjectionKey<ReturnType<typeof createRenderer>> =
