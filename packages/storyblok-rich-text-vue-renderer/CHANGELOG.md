@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v3.1.1...v3.1.2) (2021-08-02)
+
+
+### Bug Fixes
+
+* **vue-renderer:** externalize dependencies ([437c226](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/commit/437c226b6e64335d9faffaf106838e228878dd78))
+
+
+
+
+
 ## [3.1.1](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/compare/v3.1.0...v3.1.1) (2021-08-01)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@marvr/storyblok-rich-text-types",
-  "version": "3.0.0",
+  "version": "3.1.2",
   "main": "./dist/storyblok-rich-text-types.cjs.js",
   "module": "./dist/storyblok-rich-text-types.es.js",
   "types": "./dist/storyblok-rich-text-types.d.ts",

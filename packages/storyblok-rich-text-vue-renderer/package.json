@@ -1,6 +1,6 @@
 {
   "name": "@marvr/storyblok-rich-text-vue-renderer",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "main": "./dist/storyblok-rich-text-vue-renderer.umd.js",
   "module": "./dist/storyblok-rich-text-vue-renderer.es.js",
   "types": "./dist/storyblok-rich-text-vue-renderer.d.ts",
@@ -16,7 +16,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@marvr/storyblok-rich-text-types": "^3.0.0",
+    "@marvr/storyblok-rich-text-types": "^3.1.2",
     "vue": "^3.1.5"
   },
   "devDependencies": {
