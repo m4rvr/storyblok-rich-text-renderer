@@ -25,7 +25,7 @@ export const plugin = (options?: PluginOptions): Plugin => ({
   },
 });
 
-export function useRenderer() {
+export function useRenderer(): ReturnType<typeof createRenderer> {
   const renderer = inject(key);
   if (!renderer) throw new Error('Rich Text Renderer not provided.');
   return renderer;
