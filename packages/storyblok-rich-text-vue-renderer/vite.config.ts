@@ -13,5 +13,14 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/plugin.ts'),
       name: 'StoryblokRichTextVueRenderer',
     },
+    rollupOptions: {
+      external: ['vue', '@marvr/storyblok-rich-text-types'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          '@marvr/storyblok-rich-text-types': 'StoryblokRichTextTypes',
+        },
+      },
+    },
   },
 });
