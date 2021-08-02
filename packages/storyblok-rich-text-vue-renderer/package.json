@@ -1,6 +1,23 @@
 {
   "name": "@marvr/storyblok-rich-text-vue-renderer",
   "version": "3.1.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinRudolph/storyblok-rich-text-renderer.git"
+  },
+  "author": "Marvin Rudolph",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarvinRudolph/storyblok-rich-text-renderer/issues"
+  },
+  "homepage": "https://github.com/MarvinRudolph/storyblok-rich-text-renderer#readme",
+  "keywords": [
+    "rich-text",
+    "renderer",
+    "storyblok",
+    "vue.js",
+    "plugin"
+  ],
   "main": "./dist/storyblok-rich-text-vue-renderer.umd.js",
   "module": "./dist/storyblok-rich-text-vue-renderer.es.js",
   "types": "./dist/storyblok-rich-text-vue-renderer.d.ts",
