@@ -39,3 +39,5 @@ export function defineResolvers(
 }
 
 export { RichTextRenderer };
+export * from './resolvers';
+export * from './renderer';
