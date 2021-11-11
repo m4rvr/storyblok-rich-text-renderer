@@ -64,11 +64,12 @@ export function useRenderer(options: Options = {}) {
     const components: VNode[] = [];
 
     node.attrs.body.forEach((body) => {
+      const propName = options.propName || 'body';
       const { component } = body;
       const resolver =
         componentResolvers[component] || componentResolvers._fallback;
 
-      components.push(h(resolver, { props: { body } }));
+      components.push(h(resolver, { props: { [propName]: body } }));
     });
 
     return components;
