@@ -13,13 +13,14 @@ export type ResolversOption = Resolvers & {
 export type MergedResolvers = Required<ResolversOption>;
 
 export interface PluginOptions {
-  resolvers: MergedResolvers;
+  resolvers: {components?: ComponentResolvers;}
 }
 
 export const plugin = (options?: PluginOptions): Plugin => ({
   install(app) {
+    const resolves: MergedResolvers = options?.resolvers ? { ...defaultResolvers, ...options.resolvers } as MergedResolvers: { ...defaultResolvers, components: {} }
     const renderer = createRenderer(
-      options?.resolvers ? { ...defaultResolvers, ...options?.resolvers } : { ...defaultResolvers, components: {} },
+      resolves
     );
     app.provide(key, renderer);
   },
