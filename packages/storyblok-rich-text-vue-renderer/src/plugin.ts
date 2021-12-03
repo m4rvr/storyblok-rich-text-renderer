@@ -19,7 +19,7 @@ export interface PluginOptions {
 export const plugin = (options?: PluginOptions): Plugin => ({
   install(app) {
     const renderer = createRenderer(
-      options?.resolvers || { ...defaultResolvers, components: {} },
+      options?.resolvers ? { ...defaultResolvers, ...options?.resolvers } : { ...defaultResolvers, components: {} },
     );
     app.provide(key, renderer);
   },
