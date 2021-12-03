@@ -230,6 +230,29 @@ const doc = shallowReactive({
       ],
     },
     {
+      type: 'paragraph',
+      content: [
+        {
+          text: '<custom-component :msg="I woooork"></custom-component>',
+          type: 'text'
+        }
+      ]
+    },
+    {
+      type: 'blok',
+      attrs: {
+        id: '489f2970-6787-486a-97c3-6f1e8a99b7a9',
+        body: [
+          {
+            sub: [],
+            _uid: 'i-134324ee-1754-48be-93df-02df1e394733',
+            title: 'Second button!',
+            component: 'custom-component',
+          },
+        ],
+      },
+    },
+    {
       type: 'blok',
       attrs: {
         id: '489f2970-6787-486a-97c3-6f1e8a99b7a9',

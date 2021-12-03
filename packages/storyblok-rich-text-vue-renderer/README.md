@@ -70,3 +70,22 @@ export default defineComponent({
 })
 </script>
 ```
+
+### Use custom resolver for components
+
+```ts
+import { createApp } from 'vue';
+import App from './App.vue';
+import { plugin } from '@marvr/storyblok-rich-text-vue-renderer';
+import CustomComponent from './components/CustomComponent.vue';
+
+const app = createApp(App);
+app.use(plugin({
+  resolvers: {
+    components: {
+      'custom-component': () => h(CustomComponent)
+    }
+  }
+}));
+app.mount('#app');
+```
