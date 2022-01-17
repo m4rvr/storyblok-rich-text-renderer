@@ -39,9 +39,6 @@
           "^build"
         ],
         "outputs": []
-      },
-      "lint": {
-        "outputs": []
       }
     }
   }
