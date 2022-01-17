@@ -10,17 +10,15 @@ import type {
   StyledAttributes,
   TextNode,
 } from '@marvr/storyblok-rich-text-types'
-import {
-  LinkTypes,
-  NodeTypes,
-} from '@marvr/storyblok-rich-text-types'
+import { LinkTypes, NodeTypes } from '@marvr/storyblok-rich-text-types'
 
 export type RenderedNode = ReturnType<typeof h>
 export type Component = DefineComponent<{}, {}, any>
 
 export type BlockResolverFunction = () => RenderedNode | RenderedNode[]
-export type BlockResolverFunctionWithOptions<O extends Record<string, any>> =
-  (options: O) => RenderedNode | RenderedNode[]
+export type BlockResolverFunctionWithOptions<O extends Record<string, any>> = (
+  options: O,
+) => RenderedNode | RenderedNode[]
 
 export type BlockResolver = Component | BlockResolverFunction
 
@@ -58,7 +56,7 @@ export interface ComponentOptions {
 }
 
 export type ComponentResolverFunction = (
-  options: ComponentOptions
+  options: ComponentOptions,
 ) => RenderedNode
 
 export type ComponentResolvers = Record<string, ComponentResolverFunction>
@@ -101,7 +99,7 @@ export const defaultResolvers: Resolvers = {
   [NodeTypes.PARAGRAPH]: ({ children }) => h('p', children),
   [NodeTypes.QUOTE]: ({ children }) => h('blockquote', children),
   // @TODO respect attrs.order?
-  [NodeTypes.OL_LIST]: ({ children, attrs }) => h('ol', children),
+  [NodeTypes.OL_LIST]: ({ children }) => h('ol', children),
   [NodeTypes.UL_LIST]: ({ children }) => h('ul', children),
   [NodeTypes.LIST_ITEM]: ({ children }) => h('li', children),
   [NodeTypes.CODE_BLOCK]: ({ children, attrs }) => h('pre', attrs, children),
@@ -126,16 +124,16 @@ export const defaultResolvers: Resolvers = {
       case LinkTypes.EMAIL:
         href = `mailto:${attrs.href}`
         break
-      case LinkTypes.STORY:
+      case LinkTypes.STORY: {
         const RouterLink = getRouterLinkComponent()
-        if (!RouterLink)
-          return h('a', { href, target: attrs.target }, text)
+        if (!RouterLink) return h('a', { href, target: attrs.target }, text)
 
         return h(
           RouterLink,
           { to: attrs.href, target: attrs.target },
           { default: () => text },
         )
+      }
     }
 
     return h('a', { href: attrs.href, target: attrs.target }, text)

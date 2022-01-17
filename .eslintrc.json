@@ -1,8 +1,7 @@
 {
+  "plugins": ["prettier"],
   "extends": [
-    "@antfu"
-  ],
-  "rules": {
-    "arrow-parens": ["error", "always"]
-  }
+    "@antfu",
+    "prettier"
+  ]
 }

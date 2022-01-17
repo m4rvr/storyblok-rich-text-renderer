@@ -22,11 +22,6 @@ import type { Component, RenderedNode, Resolvers } from './resolvers'
 import type { MergedResolvers } from '.'
 
 export function createRenderer(resolvers: MergedResolvers) {
-  const renderDocument = (node: Node) => {
-    if (Array.isArray(node)) return renderNodeList(node)
-    return renderNode(node)
-  }
-
   const renderNode = (node: Node) => {
     if (isTextNode(node)) {
       if (!node.marks) return renderTextNode(node)
@@ -59,7 +54,7 @@ export function createRenderer(resolvers: MergedResolvers) {
     return nodeList
   }
 
-  const renderBlockNode = (node: BlockNodes) => {
+  function renderBlockNode(node: BlockNodes) {
     switch (node.type) {
       // With children only
       case NodeTypes.DOCUMENT:
@@ -90,7 +85,7 @@ export function createRenderer(resolvers: MergedResolvers) {
     }
   }
 
-  const renderMarkNode = (node: MarkNodes, text: TextNode['text']) => {
+  function renderMarkNode(node: MarkNodes, text: TextNode['text']) {
     switch (node.type) {
       // With text only
       case NodeTypes.BOLD:
@@ -112,7 +107,7 @@ export function createRenderer(resolvers: MergedResolvers) {
     }
   }
 
-  const renderComponentNode = (node: ComponentNode) => {
+  function renderComponentNode(node: ComponentNode) {
     const components: RenderedNode[] = []
 
     node.attrs.body.forEach((body) => {
@@ -131,7 +126,9 @@ export function createRenderer(resolvers: MergedResolvers) {
     return components
   }
 
-  const renderTextNode = (node: TextNode) => createTextVNode(node.text)
+  function renderTextNode(node: TextNode) {
+    return createTextVNode(node.text)
+  }
 
   const renderChildren = (
     node: BlockNodesWithContent | BlockNodesWithContentAndAttributes,
@@ -200,6 +197,11 @@ export function createRenderer(resolvers: MergedResolvers) {
       return h(resolver, node.attrs, { default: () => text })
 
     return resolver({ text, attrs: node.attrs as never })
+  }
+
+  const renderDocument = (node: Node) => {
+    if (Array.isArray(node)) return renderNodeList(node)
+    return renderNode(node)
   }
 
   return { renderDocument }
