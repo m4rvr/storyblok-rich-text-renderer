@@ -39,7 +39,7 @@
     "clean": ""
   },
   "peerDependencies": {
-    "vue": "^3.1.5"
+    "vue": "^3.2.27"
   },
   "dependencies": {
     "@marvr/storyblok-rich-text-types": "workspace:*",
