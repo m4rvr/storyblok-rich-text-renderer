@@ -3,9 +3,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, shallowReactive } from 'vue';
-import { DocumentNode } from '@marvr/storyblok-rich-text-types';
-import RichTextRenderer from './components/RichTextRenderer';
+import { defineComponent, shallowReactive } from 'vue'
+import type { DocumentNode } from '@marvr/storyblok-rich-text-types'
+import RichTextRenderer from './components/RichTextRenderer'
 
 const doc = shallowReactive({
   type: 'doc',
@@ -250,7 +250,7 @@ const doc = shallowReactive({
       },
     },
   ],
-}) as DocumentNode;
+}) as DocumentNode
 
 export default defineComponent({
   name: 'App',
@@ -258,7 +258,7 @@ export default defineComponent({
     RichTextRenderer,
   },
   setup() {
-    return { doc };
+    return { doc }
   },
-});
+})
 </script>

@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "types": ["vite/client"]
-  }
-}

@@ -11,9 +11,11 @@
     "declarationMap": true,
     "outDir": "dist",
     "rootDir": ".",
+    "sourceMap": true,
+    "resolveJsonModule": true,
     "paths": {
       "@marvr/*": ["packages/*/src"]
-    },
+    }
   },
-  "include": ["packages/*/src"]
+  "exclude": ["**/node_modules/**", "**/dist/**"]
 }

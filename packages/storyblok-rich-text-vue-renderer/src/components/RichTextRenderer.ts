@@ -1,6 +1,7 @@
-import { defineComponent, PropType } from 'vue';
-import { DocumentNode } from '@marvr/storyblok-rich-text-types';
-import { useRenderer } from '../plugin';
+import type { PropType } from 'vue'
+import { defineComponent } from 'vue'
+import type { DocumentNode } from '@marvr/storyblok-rich-text-types'
+import { useRenderer } from '..'
 
 export default defineComponent({
   name: 'RichTextRenderer',
@@ -11,7 +12,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const renderer = useRenderer();
-    return () => renderer.renderDocument(props.document);
+    const renderer = useRenderer()
+    return () => renderer.renderDocument(props.document)
   },
-});
+})
