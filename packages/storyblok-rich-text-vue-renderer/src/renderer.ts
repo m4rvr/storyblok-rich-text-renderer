@@ -1,61 +1,63 @@
-import { createTextVNode, h, isVNode } from 'vue';
-import {
-  Node,
-  isTextNode,
-  isBlockNode,
-  isComponentNode,
+import { createTextVNode, h, isVNode } from 'vue'
+import type {
   BlockNodes,
-  NodeTypes,
-  MarkNodes,
-  TextNode,
-  ComponentNode,
+  BlockNodesWithAttributes,
   BlockNodesWithContent,
   BlockNodesWithContentAndAttributes,
-  BlockNodesWithAttributes,
   BlockNodesWithoutOptions,
-  MarkNodesWithoutOptions,
+  ComponentNode,
+  MarkNodes,
   MarkNodesWithAttributes,
-} from '@marvr/storyblok-rich-text-types';
-import { RenderedNode, Resolvers, Component } from './resolvers';
-import type { MergedResolvers } from './plugin';
+  MarkNodesWithoutOptions,
+  Node,
+  TextNode,
+} from '@marvr/storyblok-rich-text-types'
+import {
+  NodeTypes,
+  isBlockNode,
+  isComponentNode,
+  isTextNode,
+} from '@marvr/storyblok-rich-text-types'
+import type { Component, RenderedNode, Resolvers } from './resolvers'
+import type { MergedResolvers } from '.'
 
 export function createRenderer(resolvers: MergedResolvers) {
   const renderDocument = (node: Node) => {
-    if (Array.isArray(node)) return renderNodeList(node);
-    return renderNode(node);
-  };
+    if (Array.isArray(node)) return renderNodeList(node)
+    return renderNode(node)
+  }
 
   const renderNode = (node: Node) => {
     if (isTextNode(node)) {
-      if (!node.marks) return renderTextNode(node);
-      return node.marks.map((mark) => renderMarkNode(mark, node.text));
+      if (!node.marks) return renderTextNode(node)
+      return node.marks.map((mark) => renderMarkNode(mark, node.text))
     } else if (isBlockNode(node)) {
-      return renderBlockNode(node);
+      return renderBlockNode(node)
     } else if (isComponentNode(node)) {
-      return renderComponentNode(node);
+      return renderComponentNode(node)
     }
 
     // @TODO
-    return h('div', 'fallback node');
-  };
+    return h('div', 'fallback node')
+  }
 
   const renderNodeList = (nodes: Node[]) => {
-    const nodeList: RenderedNode[] = [];
+    const nodeList: RenderedNode[] = []
 
     nodes.forEach((node) => {
-      const renderedNode = renderNode(node);
+      const renderedNode = renderNode(node)
 
       if (Array.isArray(renderedNode)) {
         renderedNode.forEach((childNode) => {
-          nodeList.push(childNode);
-        });
+          nodeList.push(childNode)
+        })
       } else {
-        nodeList.push(renderedNode);
+        nodeList.push(renderedNode)
       }
-    });
+    })
 
-    return nodeList;
-  };
+    return nodeList
+  }
 
   const renderBlockNode = (node: BlockNodes) => {
     switch (node.type) {
@@ -65,28 +67,28 @@ export function createRenderer(resolvers: MergedResolvers) {
       case NodeTypes.QUOTE:
       case NodeTypes.UL_LIST:
       case NodeTypes.LIST_ITEM:
-        return resolveBlockNodeWithContent(node);
+        return resolveBlockNodeWithContent(node)
 
       // With children and attributes
       case NodeTypes.HEADING:
       case NodeTypes.OL_LIST:
       case NodeTypes.CODE_BLOCK:
-        return resolveBlockNodeWithContentAndAttributes(node);
+        return resolveBlockNodeWithContentAndAttributes(node)
 
       // Without options
       case NodeTypes.HR:
       case NodeTypes.BR:
-        return resolveBlockNodeWithoutOptions(node);
+        return resolveBlockNodeWithoutOptions(node)
 
       // With attributes only
       case NodeTypes.IMAGE:
-        return resolveBlockNodeWithAttributes(node);
+        return resolveBlockNodeWithAttributes(node)
 
       default:
         // @TODO fallback
-        return h('div', 'fallback block');
+        return h('div', 'fallback block')
     }
-  };
+  }
 
   const renderMarkNode = (node: MarkNodes, text: TextNode['text']) => {
     switch (node.type) {
@@ -97,123 +99,114 @@ export function createRenderer(resolvers: MergedResolvers) {
       case NodeTypes.UNDERLINE:
       case NodeTypes.ITALIC:
       case NodeTypes.CODE:
-        return resolveMarkNode(node, text);
+        return resolveMarkNode(node, text)
 
       // With attributes
       case NodeTypes.LINK:
       case NodeTypes.STYLED:
-        return resolveMarkNodeWithAttributes(node, text);
+        return resolveMarkNodeWithAttributes(node, text)
 
       default:
         // @TODO fallback
-        return h('span', 'fallback mark');
+        return h('span', 'fallback mark')
     }
-  };
+  }
 
   const renderComponentNode = (node: ComponentNode) => {
-    const components: RenderedNode[] = [];
+    const components: RenderedNode[] = []
 
     node.attrs.body.forEach((body) => {
-      const { component, _uid, ...fields } = body;
-      const resolver = resolvers.components[component];
+      const { component, _uid, ...fields } = body
+      const resolver = resolvers.components[component]
 
       if (resolver) {
         components.push(
           resolver({ id: node.attrs.id, component, _uid, fields }),
-        );
+        )
       } else {
-        components.push(resolvers[NodeTypes.COMPONENT]());
+        components.push(resolvers[NodeTypes.COMPONENT]())
       }
-    });
+    })
 
-    return components;
-  };
+    return components
+  }
 
-  const renderTextNode = (node: TextNode) => createTextVNode(node.text);
+  const renderTextNode = (node: TextNode) => createTextVNode(node.text)
 
   const renderChildren = (
     node: BlockNodesWithContent | BlockNodesWithContentAndAttributes,
-  ) =>
-    node.content && node.content.length ? renderNodeList(node.content) : [];
+  ) => (node.content && node.content.length ? renderNodeList(node.content) : [])
 
   function resolveBlockNodeWithContent(node: BlockNodesWithContent) {
-    const resolver = resolvers[node.type];
-    const children = renderChildren(node);
+    const resolver = resolvers[node.type]
+    const children = renderChildren(node)
 
-    if (isComponentResolver(resolver)) {
-      return h(resolver, null, { default: () => children });
-    }
+    if (isComponentResolver(resolver))
+      return h(resolver, null, { default: () => children })
 
-    return resolver({ children });
+    return resolver({ children })
   }
 
   function resolveBlockNodeWithAttributes(node: BlockNodesWithAttributes) {
-    const resolver = resolvers[node.type];
+    const resolver = resolvers[node.type]
 
-    if (isComponentResolver(resolver)) {
-      return h(resolver, node.attrs);
-    }
+    if (isComponentResolver(resolver)) return h(resolver, node.attrs)
 
-    return resolver({ attrs: node.attrs });
+    return resolver({ attrs: node.attrs })
   }
 
   function resolveBlockNodeWithContentAndAttributes(
     node: BlockNodesWithContentAndAttributes,
   ) {
-    const resolver = resolvers[node.type];
-    const children = renderChildren(node);
+    const resolver = resolvers[node.type]
+    const children = renderChildren(node)
 
-    if (isComponentResolver(resolver)) {
-      return h(resolver, node.attrs, { default: () => children });
-    }
+    if (isComponentResolver(resolver))
+      return h(resolver, node.attrs, { default: () => children })
 
     return resolver({
       children,
       attrs: node.attrs as never,
-    });
+    })
   }
 
   function resolveBlockNodeWithoutOptions(node: BlockNodesWithoutOptions) {
-    const resolver = resolvers[node.type];
+    const resolver = resolvers[node.type]
 
-    if (isComponentResolver(resolver)) {
-      return h(resolver);
-    }
+    if (isComponentResolver(resolver)) return h(resolver)
 
-    return resolver();
+    return resolver()
   }
 
   function resolveMarkNode(
     node: MarkNodesWithoutOptions,
     text: TextNode['text'],
   ) {
-    const resolver = resolvers[node.type];
+    const resolver = resolvers[node.type]
 
-    if (isComponentResolver(resolver)) {
-      return h(resolver, { default: () => text });
-    }
+    if (isComponentResolver(resolver))
+      return h(resolver, { default: () => text })
 
-    return resolver({ text });
+    return resolver({ text })
   }
 
   function resolveMarkNodeWithAttributes(
     node: MarkNodesWithAttributes,
     text: TextNode['text'],
   ) {
-    const resolver = resolvers[node.type];
+    const resolver = resolvers[node.type]
 
-    if (isComponentResolver(resolver)) {
-      return h(resolver, node.attrs, { default: () => text });
-    }
+    if (isComponentResolver(resolver))
+      return h(resolver, node.attrs, { default: () => text })
 
-    return resolver({ text, attrs: node.attrs as never });
+    return resolver({ text, attrs: node.attrs as never })
   }
 
-  return { renderDocument };
+  return { renderDocument }
 }
 
 export function isComponentResolver(
   resolver: Resolvers[keyof Resolvers],
 ): resolver is Component {
-  return typeof resolver !== 'function' && !isVNode(resolver);
+  return typeof resolver !== 'function' && !isVNode(resolver)
 }

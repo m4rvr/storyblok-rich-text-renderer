@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "@antfu"
+  ],
+  "rules": {
+    "arrow-parens": ["error", "always"]
+  }
+}
