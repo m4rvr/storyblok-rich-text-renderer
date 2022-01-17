@@ -33,7 +33,6 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && pnpm run rollup-dts && rm -rf dist/src",
     "rollup-dts": "rollup -c rollup.config.ts --configPlugin esbuild"
   },
