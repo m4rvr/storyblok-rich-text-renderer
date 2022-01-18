@@ -21,7 +21,14 @@ import {
 import type { Component, RenderedNode, Resolvers } from './resolvers'
 import type { MergedResolvers } from '.'
 
-export function createRenderer(resolvers: MergedResolvers) {
+export interface RendererOptions {
+  resolvers: MergedResolvers
+  omitParagraphInListItems?: boolean
+}
+
+export function createRenderer(options: RendererOptions) {
+  const { resolvers, omitParagraphInListItems = false } = options
+
   const renderNode = (node: Node) => {
     if (isTextNode(node)) {
       if (!node.marks) return renderTextNode(node)
@@ -136,7 +143,16 @@ export function createRenderer(resolvers: MergedResolvers) {
 
   function resolveBlockNodeWithContent(node: BlockNodesWithContent) {
     const resolver = resolvers[node.type]
-    const children = renderChildren(node)
+    let children = renderChildren(node)
+
+    if (
+      omitParagraphInListItems &&
+      node.type === NodeTypes.LIST_ITEM &&
+      node.content.length === 1 &&
+      node.content[0].content
+    ) {
+      children = renderNodeList(node.content[0].content)
+    }
 
     if (isComponentResolver(resolver))
       return h(resolver, null, { default: () => children })
