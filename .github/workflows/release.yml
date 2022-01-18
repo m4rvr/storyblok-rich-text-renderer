@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: pnpm turbo run build
 
-      - run: pnpm -r publish --access public --no-git-checks
+      - run: pnpm -r publish --access public --tag next --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
     
