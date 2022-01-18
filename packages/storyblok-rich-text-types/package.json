@@ -28,7 +28,8 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./src": "./src/index.ts"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

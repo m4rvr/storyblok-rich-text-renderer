@@ -15,6 +15,7 @@ importers:
       prettier: ^2.5.1
       turbo: 1.0.24
       typescript: ^4.5.4
+      vite: ^2.5.1
     devDependencies:
       '@antfu/eslint-config': 0.16.0_eslint@8.7.0+typescript@4.5.4
       '@commitlint/cli': 16.0.2_@types+node@17.0.9
@@ -27,6 +28,7 @@ importers:
       prettier: 2.5.1
       turbo: 1.0.24
       typescript: 4.5.4
+      vite: 2.7.12
 
   packages/storyblok-rich-text-types:
     specifiers:
@@ -51,7 +53,7 @@ importers:
       '@marvr/storyblok-rich-text-types': link:../storyblok-rich-text-types
       vue: 3.2.27
     optionalDependencies:
-      vue-router: 4.0.10_vue@3.2.27
+      vue-router: 4.0.12_vue@3.2.27
     devDependencies:
       '@vitejs/plugin-vue': 2.0.1_vite@2.7.12+vue@3.2.27
       esbuild: 0.14.11
@@ -61,6 +63,19 @@ importers:
       vite: 2.7.12
       vite-plugin-dts: 0.9.9_vite@2.7.12
       vue-tsc: 0.30.5_typescript@4.5.4
+
+  playground/vue:
+    specifiers:
+      '@marvr/storyblok-rich-text-vue-renderer': workspace:*
+      '@vitejs/plugin-vue': ^2.0.0
+      vue: ^3.2.27
+      vue-router: ^4.0.12
+    dependencies:
+      '@marvr/storyblok-rich-text-vue-renderer': link:../../packages/storyblok-rich-text-vue-renderer
+      vue: 3.2.27
+      vue-router: 4.0.12_vue@3.2.27
+    devDependencies:
+      '@vitejs/plugin-vue': 2.0.1_vite@2.7.12+vue@3.2.27
 
 packages:
 
@@ -720,10 +735,9 @@ packages:
       '@vue/shared': 3.2.27
     dev: false
 
-  /@vue/devtools-api/6.0.0-beta.15:
-    resolution: {integrity: sha512-quBx4Jjpexo6KDiNUGFr/zF/2A4srKM9S9v2uHgMXSU//hjgq1eGzqkIFql8T9gfX5ZaVOUzYBP3jIdIR3PKIA==}
+  /@vue/devtools-api/6.0.0-beta.21.1:
+    resolution: {integrity: sha512-FqC4s3pm35qGVeXRGOjTsRzlkJjrBLriDS9YXbflHLsfA9FrcKzIyWnLXoNm+/7930E8rRakXuAc2QkC50swAw==}
     dev: false
-    optional: true
 
   /@vue/reactivity-transform/3.2.27:
     resolution: {integrity: sha512-67//61ObGxGnVrPhjygocb24eYUh+TFMhkm7szm8v5XdKXjkNl7qgIOflwGvUnwuIRJmr9nZ7+PvY0fL+H2upA==}
@@ -2421,12 +2435,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /is-core-module/2.5.0:
-    resolution: {integrity: sha512-TXCMSDsEHMEEZ6eCA8rwRDbLu55MRGmrctljsBX/2v1d9/GzqHOxW5c5oPSgrUt2vBFXebu9rGqckXGPWOlYpg==}
-    dependencies:
-      has: 1.0.3
-    dev: true
-
   /is-core-module/2.8.1:
     resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
     dependencies:
@@ -2828,7 +2836,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.5.0
+      is-core-module: 2.8.1
       semver: 7.3.5
       validate-npm-package-license: 3.0.4
     dev: true
@@ -3312,7 +3320,7 @@ packages:
   /resolve/1.20.0:
     resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
     dependencies:
-      is-core-module: 2.5.0
+      is-core-module: 2.8.1
       path-parse: 1.0.7
     dev: true
 
@@ -4098,16 +4106,14 @@ packages:
       - supports-color
     dev: true
 
-  /vue-router/4.0.10_vue@3.2.27:
-    resolution: {integrity: sha512-YbPf6QnZpyyWfnk7CUt2Bme+vo7TLfg1nGZNkvYqKYh4vLaFw6Gn8bPGdmt5m4qrGnKoXLqc4htAsd3dIukICA==}
-    requiresBuild: true
+  /vue-router/4.0.12_vue@3.2.27:
+    resolution: {integrity: sha512-CPXvfqe+mZLB1kBWssssTiWg4EQERyqJZes7USiqfW9B5N2x+nHlnsM1D3b5CaJ6qgCvMmYJnz+G0iWjNCvXrg==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
-      '@vue/devtools-api': 6.0.0-beta.15
+      '@vue/devtools-api': 6.0.0-beta.21.1
       vue: 3.2.27
     dev: false
-    optional: true
 
   /vue-tsc/0.30.5_typescript@4.5.4:
     resolution: {integrity: sha512-EHVoJ/Ys+gQazqF6NWaWGpi7hXX/Ty+qQv/1ECcVTHY78yoM7caY2LgyyfnXroSonFa0BDo0zMNc1L6E5PIG4A==}
