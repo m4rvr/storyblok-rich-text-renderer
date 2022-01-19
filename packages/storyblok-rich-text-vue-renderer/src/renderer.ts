@@ -1,26 +1,34 @@
 import { createTextVNode, h, isVNode } from 'vue'
-import type {
-  BlockNodes,
-  BlockNodesWithAttributes,
-  BlockNodesWithContent,
-  BlockNodesWithContentAndAttributes,
-  BlockNodesWithoutOptions,
-  ComponentNode,
-  MarkNodes,
-  MarkNodesWithAttributes,
-  MarkNodesWithoutOptions,
-  Node,
-  TextNode,
-} from '@marvr/storyblok-rich-text-types'
 import {
+  type BlockNodes,
+  type BlockNodesWithAttributes,
+  type BlockNodesWithContent,
+  type BlockNodesWithContentAndAttributes,
+  type BlockNodesWithoutOptions,
+  type ComponentNode,
+  type MarkNodes,
+  type MarkNodesWithAttributes,
+  type MarkNodesWithoutOptions,
+  type Node,
   NodeTypes,
+  type TextNode,
   isBlockNode,
   isComponentNode,
   isTextNode,
 } from '@marvr/storyblok-rich-text-types'
-import type { Component, RenderedNode, Resolvers } from './resolvers'
-import { defaultResolvers } from './resolvers'
-import type { MergedResolvers } from '.'
+import {
+  type Component,
+  type ComponentResolvers,
+  type RenderedNode,
+  type Resolvers,
+  defaultResolvers,
+} from './resolvers'
+
+export type ResolversOption = Resolvers & {
+  components?: ComponentResolvers
+}
+
+export type MergedResolvers = Required<ResolversOption>
 
 export interface RendererOptions {
   resolvers: MergedResolvers

@@ -1,16 +1,16 @@
-import type { DefineComponent } from 'vue'
-import { h, resolveDynamicComponent } from 'vue'
-import type {
-  CodeBlockAttributes,
-  HeadingAttributes,
-  ImageAttributes,
-  LinkAttributes,
-  NodeAttributes,
-  OrderedListAttributes,
-  StyledAttributes,
-  TextNode,
+import { type DefineComponent, h, resolveDynamicComponent } from 'vue'
+import {
+  type CodeBlockAttributes,
+  type HeadingAttributes,
+  type ImageAttributes,
+  type LinkAttributes,
+  LinkTypes,
+  type NodeAttributes,
+  NodeTypes,
+  type OrderedListAttributes,
+  type StyledAttributes,
+  type TextNode,
 } from '@marvr/storyblok-rich-text-types'
-import { LinkTypes, NodeTypes } from '@marvr/storyblok-rich-text-types'
 
 export type RenderedNode = ReturnType<typeof h>
 export type Component = DefineComponent<{}, {}, any>

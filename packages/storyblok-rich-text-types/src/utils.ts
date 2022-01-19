@@ -1,11 +1,9 @@
-import type {
-  BlockNodes,
-  ComponentNode,
-  Node,
-  TextNode,
-} from './nodes'
 import {
+  type BlockNodes,
+  type ComponentNode,
+  type Node,
   NodeTypes,
+  type TextNode,
   blockNodeTypes,
 } from './nodes'
 

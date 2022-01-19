@@ -1,5 +1,4 @@
-import type { PropType } from 'vue'
-import { defineComponent } from 'vue'
+import { type PropType, defineComponent } from 'vue'
 import type { DocumentNode } from '@marvr/storyblok-rich-text-types'
 import { useRenderer } from '..'
 

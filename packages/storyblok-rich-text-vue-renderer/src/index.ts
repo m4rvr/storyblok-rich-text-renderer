@@ -1,19 +1,15 @@
-import type { InjectionKey, Plugin } from 'vue'
-import { inject } from 'vue'
-import { createRenderer } from './renderer'
-import type { RendererOptions } from './renderer'
+import { type InjectionKey, type Plugin, inject } from 'vue'
+import {
+  type MergedResolvers,
+  type RendererOptions,
+  type ResolversOption,
+  createRenderer,
+} from './renderer'
 import RichTextRenderer from './components/RichTextRenderer'
-import type { ComponentResolvers, Resolvers } from './resolvers'
 import { defaultResolvers } from './resolvers'
 
 const key: InjectionKey<ReturnType<typeof createRenderer>> =
   Symbol('Rich Text Renderer')
-
-export type ResolversOption = Resolvers & {
-  components?: ComponentResolvers
-}
-
-export type MergedResolvers = Required<ResolversOption>
 
 export const plugin = (options?: Partial<RendererOptions>): Plugin => ({
   install(app) {
