@@ -12,7 +12,7 @@
     "lint:fix": "eslint \"**/*.{ts,js,vue}\" --fix",
     "build": "pnpm -r run build --parallel",
     "play:vue": "vite playground/vue",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag"
+    "release": "bumpp package.json packages/*/package.json --commit \"chore: release v%s\" --push --tag"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.16.0",
