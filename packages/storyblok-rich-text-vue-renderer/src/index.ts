@@ -15,14 +15,9 @@ export type ResolversOption = Resolvers & {
 
 export type MergedResolvers = Required<ResolversOption>
 
-export type PluginOptions = Partial<RendererOptions>
-
-export const plugin = (options?: PluginOptions): Plugin => ({
+export const plugin = (options?: Partial<RendererOptions>): Plugin => ({
   install(app) {
-    const renderer = createRenderer({
-      ...options,
-      resolvers: options?.resolvers || { ...defaultResolvers, components: {} },
-    })
+    const renderer = createRenderer(options)
 
     app.provide(key, renderer)
   },

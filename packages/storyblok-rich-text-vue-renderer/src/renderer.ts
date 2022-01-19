@@ -19,6 +19,7 @@ import {
   isTextNode,
 } from '@marvr/storyblok-rich-text-types'
 import type { Component, RenderedNode, Resolvers } from './resolvers'
+import { defaultResolvers } from './resolvers'
 import type { MergedResolvers } from '.'
 
 export interface RendererOptions {
@@ -26,8 +27,11 @@ export interface RendererOptions {
   omitParagraphInListItems?: boolean
 }
 
-export function createRenderer(options: RendererOptions) {
-  const { resolvers, omitParagraphInListItems = false } = options
+export function createRenderer(options?: Partial<RendererOptions>) {
+  const {
+    resolvers = options?.resolvers || { ...defaultResolvers, components: {} },
+    omitParagraphInListItems = false,
+  } = options || {}
 
   const renderNode = (node: Node) => {
     if (isTextNode(node)) {
