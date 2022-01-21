@@ -18,21 +18,25 @@ jobs:
         with:
           version: 6.23.5
 
-      - name: Set node version to v16
+      - name: Use Node.js v16
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: v16
+          registry-url: https://registry.npmjs.org/
           cache: "pnpm"
 
-      - run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build
         run: pnpm turbo run build
 
-      - run: pnpm -r publish --access public --tag next --no-git-checks
+      - name: Publish to NPM
+        run: pnpm -r publish --access public --tag next --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
     
-      - run: npx conventional-github-releaser -p angular
+      - name: Create changelog
+        run: npx conventional-github-releaser -p angular
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
