@@ -19,6 +19,16 @@ const doc = shallowReactive({
       ],
     },
     {
+      type: 'paragraph',
+      content: [
+        {
+          text: 'Bold and italic',
+          type: 'text',
+          marks: [{ type: 'bold' }, { type: 'italic' }],
+        },
+      ],
+    },
+    {
       type: 'bullet_list',
       content: [
         {
