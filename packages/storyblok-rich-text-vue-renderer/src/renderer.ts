@@ -1,4 +1,4 @@
-import { createTextVNode, h, isVNode } from 'vue'
+import { type VNode, createTextVNode, h, isVNode } from 'vue'
 import {
   type BlockNodes,
   type BlockNodesWithAttributes,
@@ -44,7 +44,11 @@ export function createRenderer(options?: Partial<RendererOptions>) {
   const renderNode = (node: Node) => {
     if (isTextNode(node)) {
       if (!node.marks) return renderTextNode(node)
-      return node.marks.map((mark) => renderMarkNode(mark, node.text))
+
+      return node.marks.reduce(
+        (text: VNode, mark: MarkNodes) => renderMarkNode(mark, text),
+        renderTextNode(node),
+      )
     } else if (isBlockNode(node)) {
       return renderBlockNode(node)
     } else if (isComponentNode(node)) {
@@ -104,7 +108,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
     }
   }
 
-  function renderMarkNode(node: MarkNodes, text: TextNode['text']) {
+  function renderMarkNode(node: MarkNodes, text: VNode) {
     switch (node.type) {
       // With text only
       case NodeTypes.BOLD:
@@ -203,10 +207,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
     return resolver()
   }
 
-  function resolveMarkNode(
-    node: MarkNodesWithoutOptions,
-    text: TextNode['text'],
-  ) {
+  function resolveMarkNode(node: MarkNodesWithoutOptions, text: VNode) {
     const resolver = resolvers[node.type]
 
     if (isComponentResolver(resolver))
@@ -217,7 +218,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
 
   function resolveMarkNodeWithAttributes(
     node: MarkNodesWithAttributes,
-    text: TextNode['text'],
+    text: VNode,
   ) {
     const resolver = resolvers[node.type]
 

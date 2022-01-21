@@ -1,4 +1,9 @@
-import { type DefineComponent, h, resolveDynamicComponent } from 'vue'
+import {
+  type DefineComponent,
+  type VNode,
+  h,
+  resolveDynamicComponent,
+} from 'vue'
 import {
   type CodeBlockAttributes,
   type HeadingAttributes,
@@ -9,7 +14,6 @@ import {
   NodeTypes,
   type OrderedListAttributes,
   type StyledAttributes,
-  type TextNode,
 } from '@marvr/storyblok-rich-text-types'
 
 export type RenderedNode = ReturnType<typeof h>
@@ -34,12 +38,10 @@ export type BlockResolverWithChildrenAndAttributes<A extends NodeAttributes> =
   | Component
   | BlockResolverFunctionWithOptions<{ children: RenderedNode[]; attrs: A }>
 
-export type MarkResolverFunction = (options: {
-  text: TextNode['text']
-}) => RenderedNode
+export type MarkResolverFunction = (options: { text: VNode }) => RenderedNode
 
 export type MarkResolverFunctionWithAttributes<A extends NodeAttributes> =
-  (options: { text: TextNode['text']; attrs: A }) => RenderedNode
+  (options: { text: VNode; attrs: A }) => RenderedNode
 
 export type MarkResolver = Component | MarkResolverFunction
 export type MarkResolverWithAttributes<A extends NodeAttributes> =
