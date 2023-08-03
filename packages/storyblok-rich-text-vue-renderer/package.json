@@ -50,7 +50,7 @@
     "rollup": "^2.64.0",
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-esbuild": "^4.8.2",
-    "vite": "^2.5.1",
+    "vite": "^2.9.16",
     "vite-plugin-dts": "^0.9.9",
     "vue-router": "^4.0.1",
     "vue-tsc": "^0.30.5"
