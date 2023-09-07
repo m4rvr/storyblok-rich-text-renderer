@@ -56,7 +56,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
     }
 
     // @TODO
-    return h('div', 'fallback node')
+    return h('div', `fallback: the node "${node.type}" is not handled`)
   }
 
   const renderNodeList = (nodes: Node[]) => {
@@ -104,7 +104,8 @@ export function createRenderer(options?: Partial<RendererOptions>) {
 
       default:
         // @TODO fallback
-        return h('div', 'fallback block')
+        // @ts-expect-error There exist more marks than handled in this module.
+        return h('div', `fallback: block "${node.type}" is not handled`)
     }
   }
 
@@ -121,12 +122,14 @@ export function createRenderer(options?: Partial<RendererOptions>) {
 
       // With attributes
       case NodeTypes.LINK:
+      case NodeTypes.ANCHOR:
       case NodeTypes.STYLED:
         return resolveMarkNodeWithAttributes(node, text)
 
       default:
         // @TODO fallback
-        return h('span', 'fallback mark')
+        // @ts-expect-error There exist more marks than handled in this module.
+        return h('span', `fallback: the mark "${node.type}" is not handled`)
     }
   }
 
