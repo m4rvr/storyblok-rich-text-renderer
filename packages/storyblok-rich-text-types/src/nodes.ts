@@ -23,6 +23,8 @@ export enum NodeTypes {
   STYLED = 'styled',
   SUPERSCRIPT = 'superscript',
   SUBSCRIPT = 'subscript',
+  TEXT_STYLE = 'textStyle',
+  HIGHLIGHT = 'highlight',
   // Text
   TEXT = 'text',
   // Component
@@ -232,6 +234,24 @@ export interface SubscriptNode extends Node {
   type: NodeTypes.SUBSCRIPT
 }
 
+export interface TextStyleAttributes {
+  color: string | null
+}
+
+export interface TextStyleNode {
+  type: NodeTypes.TEXT_STYLE
+  attrs: TextStyleAttributes
+}
+
+export interface HighlightAttributes {
+  color: string | null
+}
+
+export interface HighlightNode {
+  type: NodeTypes.HIGHLIGHT
+  attrs: HighlightAttributes
+}
+
 export type BlockNodes =
   | DocumentNode
   | HeadingNode
@@ -257,6 +277,8 @@ export type MarkNodes =
   | AnchorNode
   | SuperscriptNode
   | SubscriptNode
+  | TextStyleNode
+  | HighlightNode
 
 export type RootNodes =
   | HeadingNode
@@ -291,4 +313,9 @@ export type MarkNodesWithoutOptions =
   | SuperscriptNode
   | SubscriptNode
 
-export type MarkNodesWithAttributes = LinkNode | AnchorNode | StyledNode
+export type MarkNodesWithAttributes =
+  | LinkNode
+  | AnchorNode
+  | StyledNode
+  | TextStyleNode
+  | HighlightNode

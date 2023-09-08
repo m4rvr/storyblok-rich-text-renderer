@@ -126,6 +126,8 @@ export function createRenderer(options?: Partial<RendererOptions>) {
       case NodeTypes.LINK:
       case NodeTypes.ANCHOR:
       case NodeTypes.STYLED:
+      case NodeTypes.TEXT_STYLE:
+      case NodeTypes.HIGHLIGHT:
         return resolveMarkNodeWithAttributes(node, text)
 
       default:

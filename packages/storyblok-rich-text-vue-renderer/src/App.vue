@@ -277,6 +277,48 @@ const doc = shallowReactive({
       ],
     },
     {
+      type: 'paragraph',
+      content: [
+        {
+          text: 'This is ',
+          type: 'text',
+        },
+        {
+          text: 'highlighted',
+          type: 'text',
+          marks: [
+            {
+              type: 'highlight',
+              attrs: {
+                color: '#FFF0B4',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'paragraph',
+      content: [
+        {
+          text: 'And this has a ',
+          type: 'text',
+        },
+        {
+          text: 'text color',
+          type: 'text',
+          marks: [
+            {
+              type: 'textStyle',
+              attrs: {
+                color: '#FC0000',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
       type: 'blok',
       attrs: {
         id: '489f2970-6787-486a-97c3-6f1e8a99b7a9',

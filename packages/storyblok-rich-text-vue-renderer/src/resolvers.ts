@@ -8,6 +8,7 @@ import {
   type AnchorAttributes,
   type CodeBlockAttributes,
   type HeadingAttributes,
+  type HighlightAttributes,
   type ImageAttributes,
   type LinkAttributes,
   LinkTypes,
@@ -15,6 +16,7 @@ import {
   NodeTypes,
   type OrderedListAttributes,
   type StyledAttributes,
+  type TextStyleAttributes,
 } from '@marvr/storyblok-rich-text-types'
 
 export type RenderedNode = ReturnType<typeof h>
@@ -95,6 +97,8 @@ export interface Resolvers {
   [NodeTypes.SUPERSCRIPT]: MarkResolver
   [NodeTypes.SUBSCRIPT]: MarkResolver
   [NodeTypes.STYLED]: MarkResolverWithAttributes<StyledAttributes>
+  [NodeTypes.TEXT_STYLE]: MarkResolverWithAttributes<TextStyleAttributes>
+  [NodeTypes.HIGHLIGHT]: MarkResolverWithAttributes<HighlightAttributes>
   // Fallback component
   [NodeTypes.COMPONENT]: () => RenderedNode
 }
@@ -149,6 +153,20 @@ export const defaultResolvers: Resolvers = {
   [NodeTypes.SUPERSCRIPT]: ({ text }) => h('sup', text),
   [NodeTypes.SUBSCRIPT]: ({ text }) => h('sub', text),
   [NodeTypes.STYLED]: ({ text, attrs }) => h('span', attrs, text),
+  [NodeTypes.TEXT_STYLE]: ({ text, attrs }) =>
+    h(
+      'span',
+      { style: attrs.color ? `color: ${attrs.color};` : undefined },
+      text,
+    ),
+  [NodeTypes.HIGHLIGHT]: ({ text, attrs }) =>
+    h(
+      'mark',
+      {
+        style: attrs.color ? `background-color: ${attrs.color};` : undefined,
+      },
+      text,
+    ),
   // Component fallback
   [NodeTypes.COMPONENT]: () => h('div', 'component'),
 }
