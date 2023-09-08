@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{ts,js,vue}\"",
     "lint": "eslint \"**/*.{ts,js,vue}\"",
     "lint:fix": "eslint \"**/*.{ts,js,vue}\" --fix",
-    "build": "pnpm -r run build --parallel",
+    "build": "pnpm -r run build",
     "play:vue": "vite playground/vue",
     "release": "bumpp package.json packages/*/package.json --commit \"chore: release v%s\" --push --tag"
   },
