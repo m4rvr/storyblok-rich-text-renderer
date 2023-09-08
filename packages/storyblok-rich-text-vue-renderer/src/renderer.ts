@@ -100,6 +100,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
 
       // With attributes only
       case NodeTypes.IMAGE:
+      case NodeTypes.EMOJI:
         return resolveBlockNodeWithAttributes(node)
 
       default:
@@ -186,9 +187,11 @@ export function createRenderer(options?: Partial<RendererOptions>) {
   function resolveBlockNodeWithAttributes(node: BlockNodesWithAttributes) {
     const resolver = resolvers[node.type]
 
-    if (isComponentResolver(resolver)) return h(resolver, node.attrs)
+    if (isComponentResolver(resolver))
+      // @ts-expect-error Internal type mismatch
+      return h(resolver, node.attrs)
 
-    return resolver({ attrs: node.attrs })
+    return resolver({ attrs: node.attrs as never })
   }
 
   function resolveBlockNodeWithContentAndAttributes(
@@ -198,6 +201,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
     const children = renderChildren(node)
 
     if (isComponentResolver(resolver))
+      // @ts-expect-error Internal type mismatch
       return h(resolver, node.attrs, { default: () => children })
 
     return resolver({
@@ -230,6 +234,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
     const resolver = resolvers[node.type]
 
     if (isComponentResolver(resolver))
+      // @ts-expect-error Internal type mismatch
       return h(resolver, node.attrs, { default: () => text })
 
     return resolver({ text, attrs: node.attrs as never })

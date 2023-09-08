@@ -11,6 +11,7 @@ export enum NodeTypes {
   HR = 'horizontal_rule',
   BR = 'hard_break',
   IMAGE = 'image',
+  EMOJI = 'emoji',
   // Marks
   BOLD = 'bold',
   STRONG = 'strong',
@@ -43,6 +44,7 @@ export const blockNodeTypes = [
   NodeTypes.HR,
   NodeTypes.BR,
   NodeTypes.IMAGE,
+  NodeTypes.EMOJI,
 ]
 
 export interface NodeAttributes {}
@@ -158,6 +160,17 @@ export interface ImageNode extends Node {
   attrs: ImageAttributes
 }
 
+export interface EmojiAttributes extends NodeAttributes {
+  name: string | null
+  emoji: string | null
+  fallbackImage: string | null
+}
+
+export interface EmojiNode extends Node {
+  type: NodeTypes.EMOJI
+  attrs: EmojiAttributes
+}
+
 // Marks
 export interface BoldNode extends Node {
   type: NodeTypes.BOLD
@@ -264,6 +277,7 @@ export type BlockNodes =
   | HorizontalRuleNode
   | BreakNode
   | ImageNode
+  | EmojiNode
 
 export type MarkNodes =
   | BoldNode
@@ -297,7 +311,7 @@ export type BlockNodesWithContent =
   | ListItemNode
 
 export type BlockNodesWithoutOptions = HorizontalRuleNode | BreakNode
-export type BlockNodesWithAttributes = ImageNode
+export type BlockNodesWithAttributes = ImageNode | EmojiNode
 export type BlockNodesWithContentAndAttributes =
   | HeadingNode
   | OrderedListNode

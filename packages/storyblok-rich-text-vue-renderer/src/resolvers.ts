@@ -7,6 +7,7 @@ import {
 import {
   type AnchorAttributes,
   type CodeBlockAttributes,
+  type EmojiAttributes,
   type HeadingAttributes,
   type HighlightAttributes,
   type ImageAttributes,
@@ -84,6 +85,7 @@ export interface Resolvers {
   [NodeTypes.HR]: BlockResolver
   [NodeTypes.BR]: BlockResolver
   [NodeTypes.IMAGE]: BlockResolverWithAttributes<ImageAttributes>
+  [NodeTypes.EMOJI]: BlockResolverWithAttributes<EmojiAttributes>
   // Marks
   [NodeTypes.BOLD]: MarkResolver
   [NodeTypes.STRONG]: MarkResolver
@@ -117,6 +119,30 @@ export const defaultResolvers: Resolvers = {
   [NodeTypes.HR]: () => h('hr'),
   [NodeTypes.BR]: () => h('br'),
   [NodeTypes.IMAGE]: ({ attrs }) => h('img', attrs),
+  [NodeTypes.EMOJI]: ({ attrs }) => {
+    const props = {
+      'data-type': 'emoji',
+      'data-name': attrs.name,
+      emoji: attrs.emoji,
+    }
+
+    // TODO: Very optionated fallback, should be configurable
+    const fallbackProps = {
+      src: attrs.fallbackImage,
+      draggable: 'false',
+      loading: 'lazy',
+      align: 'absmiddle',
+      alt: attrs.name,
+      // Same size as font-size
+      style: `height: 1em; width: 1em;`,
+      // 1/1 Aspect ratio, so we don't cause layout shifts
+      height: 16,
+      width: 16,
+    }
+    const fallback = h('img', fallbackProps)
+
+    return h('span', props, attrs.emoji || fallback)
+  },
   // Marks
   [NodeTypes.BOLD]: ({ text }) => h('b', text),
   [NodeTypes.STRONG]: ({ text }) => h('strong', text),

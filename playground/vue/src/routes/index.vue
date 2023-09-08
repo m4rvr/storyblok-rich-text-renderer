@@ -325,6 +325,32 @@ const doc = shallowReactive({
       ],
     },
     {
+      type: 'paragraph',
+      content: [
+        {
+          text: 'And this is an emoji  ',
+          type: 'text',
+          marks: [
+            {
+              type: 'textStyle',
+              attrs: {
+                color: null,
+              },
+            },
+          ],
+        },
+        {
+          type: 'emoji',
+          attrs: {
+            name: 'innocent',
+            emoji: '😇',
+            fallbackImage:
+              'https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f607.png',
+          },
+        },
+      ],
+    },
+    {
       type: 'blok',
       attrs: {
         id: '489f2970-6787-486a-97c3-6f1e8a99b7a9',
