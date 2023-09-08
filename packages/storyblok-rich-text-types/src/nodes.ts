@@ -196,6 +196,7 @@ export interface LinkAttributes {
   uuid: string | null
   target: LinkTargets | null
   linktype: LinkTypes
+  anchor: string | null
 }
 
 export interface LinkNode extends Node {
