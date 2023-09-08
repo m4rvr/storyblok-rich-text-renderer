@@ -168,7 +168,7 @@ export const defaultResolvers: Resolvers = {
       text,
     ),
   // Component fallback
-  [NodeTypes.COMPONENT]: () => h('div', 'component'),
+  [NodeTypes.COMPONENT]: () => h('div', 'fallback: component is not handled'),
 }
 
 export function getRouterLinkComponent(): false | Component {

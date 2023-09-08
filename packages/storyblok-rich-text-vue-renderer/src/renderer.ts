@@ -56,7 +56,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
     }
 
     // @TODO
-    return h('div', `fallback: the node "${node.type}" is not handled`)
+    return h('span', `fallback: the node "${node.type}" is not handled`)
   }
 
   const renderNodeList = (nodes: Node[]) => {
@@ -105,7 +105,7 @@ export function createRenderer(options?: Partial<RendererOptions>) {
       default:
         // @TODO fallback
         // @ts-expect-error There exist more marks than handled in this module.
-        return h('div', `fallback: block "${node.type}" is not handled`)
+        return h('span', `fallback: block "${node.type}" is not handled`)
     }
   }
 
