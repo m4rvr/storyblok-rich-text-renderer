@@ -19,6 +19,7 @@ export enum NodeTypes {
   ITALIC = 'italic',
   CODE = 'code',
   LINK = 'link',
+  ANCHOR = 'anchor',
   STYLED = 'styled',
   // Text
   TEXT = 'text',
@@ -211,6 +212,15 @@ export interface StyledNode extends Node {
   attrs: StyledAttributes
 }
 
+export interface AnchorAttributes {
+  id: string
+}
+
+export interface AnchorNode extends Node {
+  type: NodeTypes.ANCHOR
+  attrs: AnchorAttributes
+}
+
 export type BlockNodes =
   | DocumentNode
   | HeadingNode
@@ -233,6 +243,7 @@ export type MarkNodes =
   | CodeNode
   | LinkNode
   | StyledNode
+  | AnchorNode
 
 export type RootNodes =
   | HeadingNode
@@ -265,4 +276,4 @@ export type MarkNodesWithoutOptions =
   | ItalicNode
   | CodeNode
 
-export type MarkNodesWithAttributes = LinkNode | StyledNode
+export type MarkNodesWithAttributes = LinkNode | AnchorNode | StyledNode

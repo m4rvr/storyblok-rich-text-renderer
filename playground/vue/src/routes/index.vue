@@ -14,7 +14,18 @@ const doc = shallowReactive({
     {
       type: 'paragraph',
       content: [
-        { text: 'Para', type: 'text' },
+        {
+          text: 'Para',
+          type: 'text',
+          marks: [
+            {
+              type: 'anchor',
+              attrs: {
+                id: 'verum-audiamus',
+              },
+            },
+          ],
+        },
         { text: 'graph', type: 'text', marks: [{ type: 'bold' }] },
       ],
     },
