@@ -118,6 +118,8 @@ export function createRenderer(options?: Partial<RendererOptions>) {
       case NodeTypes.UNDERLINE:
       case NodeTypes.ITALIC:
       case NodeTypes.CODE:
+      case NodeTypes.SUPERSCRIPT:
+      case NodeTypes.SUBSCRIPT:
         return resolveMarkNode(node, text)
 
       // With attributes

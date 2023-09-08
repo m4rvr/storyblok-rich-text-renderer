@@ -21,6 +21,8 @@ export enum NodeTypes {
   LINK = 'link',
   ANCHOR = 'anchor',
   STYLED = 'styled',
+  SUPERSCRIPT = 'superscript',
+  SUBSCRIPT = 'subscript',
   // Text
   TEXT = 'text',
   // Component
@@ -222,6 +224,14 @@ export interface AnchorNode extends Node {
   attrs: AnchorAttributes
 }
 
+export interface SuperscriptNode extends Node {
+  type: NodeTypes.SUPERSCRIPT
+}
+
+export interface SubscriptNode extends Node {
+  type: NodeTypes.SUBSCRIPT
+}
+
 export type BlockNodes =
   | DocumentNode
   | HeadingNode
@@ -245,6 +255,8 @@ export type MarkNodes =
   | LinkNode
   | StyledNode
   | AnchorNode
+  | SuperscriptNode
+  | SubscriptNode
 
 export type RootNodes =
   | HeadingNode
@@ -276,5 +288,7 @@ export type MarkNodesWithoutOptions =
   | UnderlineNode
   | ItalicNode
   | CodeNode
+  | SuperscriptNode
+  | SubscriptNode
 
 export type MarkNodesWithAttributes = LinkNode | AnchorNode | StyledNode

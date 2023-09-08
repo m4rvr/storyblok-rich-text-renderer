@@ -89,8 +89,11 @@ export interface Resolvers {
   [NodeTypes.UNDERLINE]: MarkResolver
   [NodeTypes.ITALIC]: MarkResolver
   [NodeTypes.CODE]: MarkResolver
+
   [NodeTypes.LINK]: MarkResolverWithAttributes<LinkAttributes>
   [NodeTypes.ANCHOR]: MarkResolverWithAttributes<AnchorAttributes>
+  [NodeTypes.SUPERSCRIPT]: MarkResolver
+  [NodeTypes.SUBSCRIPT]: MarkResolver
   [NodeTypes.STYLED]: MarkResolverWithAttributes<StyledAttributes>
   // Fallback component
   [NodeTypes.COMPONENT]: () => RenderedNode
@@ -143,6 +146,8 @@ export const defaultResolvers: Resolvers = {
     return h('a', { href: attrs.href, target: attrs.target }, text)
   },
   [NodeTypes.ANCHOR]: ({ text, attrs }) => h('span', attrs, text),
+  [NodeTypes.SUPERSCRIPT]: ({ text }) => h('sup', text),
+  [NodeTypes.SUBSCRIPT]: ({ text }) => h('sub', text),
   [NodeTypes.STYLED]: ({ text, attrs }) => h('span', attrs, text),
   // Component fallback
   [NodeTypes.COMPONENT]: () => h('div', 'component'),

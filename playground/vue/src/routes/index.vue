@@ -247,6 +247,42 @@ const doc = shallowReactive({
       ],
     },
     {
+      type: 'paragraph',
+      content: [
+        {
+          text: 'This is with ',
+          type: 'text',
+        },
+        {
+          text: 'sub',
+          type: 'text',
+          marks: [
+            {
+              type: 'subscript',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'paragraph',
+      content: [
+        {
+          text: 'And this with ',
+          type: 'text',
+        },
+        {
+          text: 'sup',
+          type: 'text',
+          marks: [
+            {
+              type: 'superscript',
+            },
+          ],
+        },
+      ],
+    },
+    {
       type: 'blok',
       attrs: {
         id: '489f2970-6787-486a-97c3-6f1e8a99b7a9',
